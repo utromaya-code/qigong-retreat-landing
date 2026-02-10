@@ -238,8 +238,8 @@ p {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, rgba(26, 34, 28, 0.75) 8%, rgba(26, 34, 28, 0.45) 38%, rgba(36, 55, 42, 0.35) 100%),
-    url("assets/images/hero.jpg") center/cover no-repeat;
+    linear-gradient(115deg, rgba(26, 34, 28, 0.82) 5%, rgba(26, 34, 28, 0.52) 35%, rgba(36, 55, 42, 0.4) 100%),
+    url("assets/images/hero.jpg") 55% 50% / cover no-repeat;
   transform: scale(1.03);
 }
 
@@ -263,17 +263,24 @@ p {
   color: #f8f7f0;
 }
 
+.hero-copy h1 {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
 .hero-subtitle {
   margin-top: 16px;
   font-size: clamp(1rem, 2.3vw, 1.35rem);
   color: #d6dfd6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .hero-lead {
   margin-top: 16px;
   max-width: 62ch;
   font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.6;
   color: #edf0ea;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .hero-actions {
@@ -310,6 +317,8 @@ p {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
+  aspect-ratio: 3 / 4;
+  min-height: 280px;
 }
 
 .split-media img,
@@ -317,6 +326,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 25%;
 }
 
 .split-content,
@@ -435,6 +445,7 @@ p {
   width: 100%;
   height: 260px;
   object-fit: cover;
+  object-position: center center;
   transition: transform 0.35s ease;
 }
 
