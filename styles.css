@@ -456,6 +456,16 @@ p {
   font-size: 0.9rem;
 }
 
+.venue-link {
+  font-weight: 700;
+  color: var(--primary-strong);
+  border-bottom: 1px solid currentColor;
+}
+
+.venue-link:hover {
+  color: var(--accent);
+}
+
 .cards-grid,
 .price-grid {
   margin-top: 30px;
