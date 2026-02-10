@@ -239,7 +239,7 @@ p {
   inset: 0;
   background:
     linear-gradient(115deg, rgba(26, 34, 28, 0.82) 5%, rgba(26, 34, 28, 0.52) 35%, rgba(36, 55, 42, 0.4) 100%),
-    url("assets/images/hero.jpg") 55% 50% / cover no-repeat;
+    url("assets/images/venue-hero.jpg") center / cover no-repeat;
   transform: scale(1.03);
 }
 
