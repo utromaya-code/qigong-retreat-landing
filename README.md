@@ -10,6 +10,9 @@
 - `offer.html` — шаблон оферты
 - `assets/images/` — изображения
 
+## Сайт в сети
+**https://utromaya-code.github.io/qigong-retreat-landing/**
+
 ## Запуск локально
 ```bash
 cd qigong-retreat-landing
