@@ -573,68 +573,73 @@ p {
 }
 
 .gallery {
-  margin-top: 28px;
+  margin-top: 24px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery::-webkit-scrollbar {
+  height: 6px;
+}
+
+.gallery::-webkit-scrollbar-track {
+  background: var(--line);
+  border-radius: 3px;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 3px;
 }
 
 .gallery-item {
+  flex: 0 0 auto;
+  width: 200px;
   border: none;
   margin: 0;
   padding: 0;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  scroll-snap-align: start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .gallery-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .gallery-item::after {
   content: "Смотреть";
   position: absolute;
-  right: 10px;
-  bottom: 10px;
-  padding: 5px 9px;
-  font-size: 0.85rem;
+  right: 8px;
+  bottom: 8px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
   border-radius: 999px;
-  background: rgba(20, 22, 20, 0.58);
+  background: rgba(20, 22, 20, 0.6);
   color: #fff;
 }
 
 .gallery-item img {
   display: block;
-  width: auto;
-  max-width: 100%;
-  max-height: 220px;
-  object-fit: contain;
-  transition: opacity 0.25s ease;
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  object-position: center 35%;
+  transition: opacity 0.2s ease;
 }
 
 .gallery-item:hover img {
-  opacity: 0.95;
-}
-
-.gallery-item:nth-child(odd) {
-  align-self: flex-end;
-  max-width: 88%;
-}
-
-.gallery-item:nth-child(even) {
-  align-self: flex-start;
-  max-width: 85%;
-}
-
-.gallery-item:nth-child(3n) {
-  align-self: center;
-  max-width: 92%;
+  opacity: 0.92;
 }
 
 .faq-list {
@@ -936,8 +941,13 @@ select:focus {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .gallery-item {
+    width: 220px;
+  }
+
   .gallery-item img {
-    max-height: 260px;
+    width: 220px;
+    height: 154px;
   }
 
   .countdown {
