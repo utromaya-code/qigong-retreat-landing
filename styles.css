@@ -530,6 +530,48 @@ p {
   color: var(--accent);
 }
 
+.price-includes-title {
+  margin: 16px 0 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.price-includes-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.price-includes-list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.price-includes-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.cta-urgency {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 8px 0 4px;
+}
+
+.cta-countdown-label {
+  margin: 12px 0 4px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
 .gallery {
   margin-top: 28px;
   display: grid;
