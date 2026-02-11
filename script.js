@@ -51,14 +51,12 @@ faqQuestions.forEach((button) => {
     faqQuestions.forEach((other) => {
       other.setAttribute("aria-expanded", "false");
       const otherAnswer = other.nextElementSibling;
-      if (otherAnswer) {
-        otherAnswer.style.maxHeight = "0px";
-      }
+      if (otherAnswer) otherAnswer.style.maxHeight = "0px";
     });
 
     button.setAttribute("aria-expanded", String(!expanded));
-    if (!expanded && answer) {
-      answer.style.maxHeight = `${answer.scrollHeight}px`;
+    if (answer) {
+      answer.style.maxHeight = !expanded ? `${answer.scrollHeight}px` : "0px";
     }
   });
 });

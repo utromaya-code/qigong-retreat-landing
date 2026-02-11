@@ -57,10 +57,23 @@ img {
 .container {
   width: min(var(--container), calc(100% - 2rem));
   margin-inline: auto;
+  padding-inline: 0;
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: min(var(--container), calc(100% - 1.25rem));
+  }
 }
 
 .section {
-  padding: 72px 0;
+  padding: 56px 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 72px 0;
+  }
 }
 
 .section-soft {
@@ -180,8 +193,10 @@ p {
 }
 
 .nav-toggle {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: #fff;
@@ -189,6 +204,17 @@ p {
   place-content: center;
   gap: 5px;
   cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-toggle:hover {
+  background: rgba(245, 242, 234, 0.9);
+  border-color: var(--primary);
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .nav-toggle span {
@@ -216,6 +242,11 @@ p {
 
 .btn:hover {
   transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary-strong);
+  outline-offset: 3px;
 }
 
 .btn-primary {
@@ -466,6 +497,12 @@ p {
   color: var(--accent);
 }
 
+.venue-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .cards-grid,
 .price-grid {
   margin-top: 30px;
@@ -642,6 +679,11 @@ p {
   opacity: 0.92;
 }
 
+.gallery-item:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
 .faq-list {
   display: grid;
   gap: 10px;
@@ -660,9 +702,22 @@ p {
   border: none;
   background: transparent;
   padding: 16px;
+  min-height: 48px;
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.faq-question:hover {
+  background: rgba(196, 30, 38, 0.04);
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
 }
 
 .faq-answer {
@@ -686,7 +741,7 @@ p {
 .countdown {
   margin: 18px auto 16px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   max-width: 520px;
 }
@@ -741,6 +796,13 @@ p {
   border-color: currentColor;
 }
 
+.footer-links a:focus-visible,
+.site-nav a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .muted {
   color: var(--muted);
 }
@@ -761,18 +823,23 @@ p {
 .lightbox {
   place-items: center;
   background: rgba(13, 17, 13, 0.92);
-  padding: 18px;
+  padding: 12px;
+  overflow-y: auto;
+  align-content: center;
 }
 
 .lightbox figure {
   margin: 0;
   max-width: min(980px, 100%);
+  flex-shrink: 0;
 }
 
 .lightbox img {
   width: 100%;
-  max-height: 80vh;
+  height: auto;
+  max-height: min(85vh, 90dvh);
   object-fit: contain;
+  vertical-align: middle;
 }
 
 .lightbox figcaption {
@@ -783,16 +850,30 @@ p {
 
 .lightbox-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 40px;
-  height: 40px;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
   border-radius: 999px;
   border: none;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.2);
   color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.lightbox-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .modal {
