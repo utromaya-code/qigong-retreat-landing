@@ -11,16 +11,30 @@ window.addEventListener("scroll", onScrollHeader);
 onScrollHeader();
 
 if (navToggle && siteNav) {
+  const closeNav = () => {
+    navToggle.setAttribute("aria-expanded", "false");
+    siteNav.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
+  };
+
+  const openNav = () => {
+    navToggle.setAttribute("aria-expanded", "true");
+    siteNav.classList.add("is-open");
+    document.body.classList.add("nav-open");
+  };
+
   navToggle.addEventListener("click", () => {
     const expanded = navToggle.getAttribute("aria-expanded") === "true";
-    navToggle.setAttribute("aria-expanded", String(!expanded));
-    siteNav.classList.toggle("is-open", !expanded);
+    if (expanded) {
+      closeNav();
+    } else {
+      openNav();
+    }
   });
 
   siteNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      navToggle.setAttribute("aria-expanded", "false");
-      siteNav.classList.remove("is-open");
+      closeNav();
     });
   });
 }
