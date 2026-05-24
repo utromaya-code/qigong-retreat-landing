@@ -1,0 +1,367 @@
+/*
+ ============================================================
+  DAHAB UNDERWATER ATMOSPHERE
+  v20260524
+  Подводный мир Красного моря — атмосферные улучшения
+ ============================================================
+*/
+
+/* ─── 1. ФОНОВЫЙ ГРАДИЕНТ СТРАНИЦЫ ─────────────────────── */
+
+body {
+  background: #f0fafb !important;
+  background-image:
+    radial-gradient(
+      ellipse 120% 60% at 50% -10%,
+      rgba(103, 232, 249, 0.14) 0%,
+      transparent 70%
+    ) !important;
+}
+
+/* Динамический градиент глубины при скролле — через JS-класс */
+body.depth-1  { background-color: #e8f8fa !important; }
+body.depth-2  { background-color: #ddf4f8 !important; }
+body.depth-3  { background-color: #d2eff6 !important; }
+body.depth-4  { background-color: #c6ebf4 !important; }
+
+/* ─── 2. CAUSTICS — СОЛНЕЧНЫЕ БЛИКИ ─────────────────────── */
+
+.caustics-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65 0.65' numOctaves='3' seed='8'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.6 0 0 0 0 0.95 0 0 0 0 1 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23c)'/%3E%3C/svg%3E");
+  background-size: 340px 340px;
+  background-attachment: fixed;
+  mix-blend-mode: screen;
+  animation: caustic-drift 18s ease-in-out infinite alternate;
+  transition: opacity 0.8s ease;
+}
+
+body.past-hero .caustics-overlay {
+  opacity: 0.55;
+}
+
+@keyframes caustic-drift {
+  0%   { background-position: 0% 0%; }
+  33%  { background-position: 40px 20px; }
+  66%  { background-position: -20px 50px; }
+  100% { background-position: 30px -30px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caustics-overlay { animation: none; }
+}
+
+/* ─── 3. ПУЗЫРЬКИ ВОЗДУХА ───────────────────────────────── */
+
+#bubbles-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+body.past-hero #bubbles-canvas {
+  opacity: 1;
+}
+
+/* ─── 4. HERO — ВИДЕО-ФОН ───────────────────────────────── */
+
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.55;
+  transform: scale(1.08);
+  will-change: transform;
+}
+
+.hero-video-wrap .hero-photo-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+}
+
+/* Оверлей поверх видео */
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2, 28, 48, 0.55) 0%, rgba(2, 28, 48, 0.2) 45%, rgba(2, 28, 48, 0.72) 100%),
+    linear-gradient(90deg, rgba(2, 28, 48, 0.45) 0%, transparent 60%);
+  z-index: 1;
+}
+
+/* ─── 5. HERO ТЕКСТ — АНИМАЦИЯ ПОЯВЛЕНИЯ ─────────────────── */
+
+.hero-animate {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: hero-fadein 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-animate-delay-1 { animation-delay: 0.25s; }
+.hero-animate-delay-2 { animation-delay: 0.55s; }
+.hero-animate-delay-3 { animation-delay: 0.85s; }
+.hero-animate-delay-4 { animation-delay: 1.1s; }
+
+@keyframes hero-fadein {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-animate {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* ─── 6. WAVE DIVIDERS ───────────────────────────────────── */
+
+.wave-divider {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin: 0;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ─── 7. SVG РЫБКИ И КОРАЛЛЫ ─────────────────────────────── */
+
+.underwater-scene {
+  position: relative;
+  overflow: hidden;
+}
+
+.fish-svg {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.72;
+  transition: transform 0.3s ease;
+}
+
+/* Плавание рыб */
+@keyframes fish-swim {
+  0%   { transform: translateX(0) scaleX(1); }
+  45%  { transform: translateX(22px) scaleX(1); }
+  50%  { transform: translateX(22px) scaleX(-1); }
+  95%  { transform: translateX(0) scaleX(-1); }
+  100% { transform: translateX(0) scaleX(1); }
+}
+
+@keyframes fish-bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes tail-wag {
+  0%, 100% { transform-origin: right center; transform: rotate(0deg); }
+  25%       { transform: rotate(8deg); }
+  75%       { transform: rotate(-8deg); }
+}
+
+.fish-clown {
+  animation: fish-bob 4s ease-in-out infinite, fish-swim 10s ease-in-out infinite;
+}
+
+.fish-tang {
+  animation: fish-bob 5.5s ease-in-out infinite 1s, fish-swim 13s ease-in-out infinite 2s;
+}
+
+.fish-tail {
+  transform-origin: left center;
+  animation: tail-wag 0.6s ease-in-out infinite;
+}
+
+/* Покачивание кораллов */
+@keyframes coral-sway {
+  0%, 100% { transform: rotate(0deg); transform-origin: bottom center; }
+  50%       { transform: rotate(4deg); transform-origin: bottom center; }
+}
+
+.coral-svg {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.coral-sway {
+  animation: coral-sway 6s ease-in-out infinite;
+}
+
+.coral-sway-r {
+  animation: coral-sway 7.5s ease-in-out infinite reverse;
+}
+
+/* Hover на рыбок */
+@media (hover: hover) {
+  .fish-svg:hover {
+    opacity: 1;
+    cursor: default;
+  }
+  .fish-svg:hover .fish-tail {
+    animation-duration: 0.25s;
+  }
+}
+
+/* ─── 8. ГАЛЕРЕЯ — RIPPLE ЭФФЕКТ ─────────────────────────── */
+
+.gallery-ripple-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-ripple-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.04 0.02' numOctaves='2' seed='3'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='8'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23r)' fill='rgba(100,220,240,0.06)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  border-radius: inherit;
+  z-index: 2;
+  mix-blend-mode: overlay;
+}
+
+.gallery-ripple-wrap:hover::after {
+  opacity: 1;
+}
+
+/* ─── 9. КАРТОЧКА «ПЕРВЫЕ 5» — КОРАЛЛОВЫЙ БОРДЮР ─────────── */
+
+.coral-card-border {
+  position: relative;
+}
+
+.coral-card-border::before,
+.coral-card-border::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.55;
+}
+
+/* Левый нижний коралл */
+.coral-card-border::before {
+  bottom: -8px;
+  left: -8px;
+  background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' fill='none'%3E%3Cpath d='M10 70 Q12 50 20 40 Q18 30 22 20' stroke='%23f59e0b' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3Cpath d='M20 40 Q28 32 36 28' stroke='%23f59e0b' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M20 40 Q14 34 10 28' stroke='%23f59e0b' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='36' cy='28' r='2.5' fill='%23f59e0b'/%3E%3Ccircle cx='10' cy='28' r='2' fill='%23f59e0b'/%3E%3Ccircle cx='22' cy='20' r='2.5' fill='%23f59e0b'/%3E%3Cpath d='M30 72 Q32 55 38 48 Q36 40 40 32' stroke='%23fb923c' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M38 48 Q44 42 50 40' stroke='%23fb923c' stroke-width='1.8' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='50' cy='40' r='2' fill='%23fb923c'/%3E%3Ccircle cx='40' cy='32' r='2' fill='%23fb923c'/%3E%3C/svg%3E");
+  transform: scaleX(-1);
+}
+
+/* Правый верхний коралл */
+.coral-card-border::after {
+  top: -8px;
+  right: -8px;
+  background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' fill='none'%3E%3Cpath d='M70 10 Q68 28 60 38 Q62 48 58 58' stroke='%230891b2' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3Cpath d='M60 38 Q52 32 46 28' stroke='%230891b2' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M60 38 Q66 32 70 28' stroke='%230891b2' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='46' cy='28' r='2.5' fill='%230891b2'/%3E%3Ccircle cx='70' cy='28' r='2' fill='%230891b2'/%3E%3Ccircle cx='58' cy='58' r='2.5' fill='%230891b2'/%3E%3Cpath d='M50 8 Q48 24 42 32 Q44 40 40 50' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M42 32 Q36 26 30 24' stroke='%2306b6d4' stroke-width='1.8' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='30' cy='24' r='2' fill='%2306b6d4'/%3E%3Ccircle cx='40' cy='50' r='2' fill='%2306b6d4'/%3E%3C/svg%3E");
+}
+
+/* ─── 10. ПЛАВНЫЙ ГРАДИЕНТ СЕКЦИЙ ───────────────────────── */
+
+/* О путешествии */
+#about { background: linear-gradient(180deg, #f0fafb 0%, #ffffff 100%) !important; }
+
+/* Программа */
+#program { background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%) !important; }
+
+/* Цитата — сохраняем тёмный, но с бирюзовым акцентом */
+section[aria-label="Цитата"] {
+  background: linear-gradient(135deg, #0f172a 0%, #0c2340 60%, #0f3460 100%) !important;
+}
+
+/* Включено */
+#included { background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%) !important; }
+
+/* Отель */
+#hotel { background: linear-gradient(180deg, #ffffff 0%, #ecfeff 100%) !important; }
+
+/* Фридайвинг */
+#freediving { background: linear-gradient(180deg, #ecfeff 0%, #cffafe 40%, #ecfeff 100%) !important; }
+
+/* Команда */
+#team { background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%) !important; }
+
+/* Цена */
+#price { background: linear-gradient(180deg, #0c2340 0%, #0f172a 100%) !important; }
+
+/* FAQ */
+#faq { background: linear-gradient(180deg, #f8fafc 0%, #f0f9ff 100%) !important; }
+
+/* Заявка */
+#request { background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%) !important; }
+
+/* ─── 11. UNDERWATER SCENE POSITIONING ──────────────────── */
+
+.underwater-scene {
+  position: relative;
+}
+
+.fish-scene-left  { position: absolute; left: -10px; pointer-events: none; z-index: 0; }
+.fish-scene-right { position: absolute; right: -10px; pointer-events: none; z-index: 0; }
+.coral-scene-left  { position: absolute; bottom: 0; left: 0; pointer-events: none; z-index: 0; }
+.coral-scene-right { position: absolute; bottom: 0; right: 0; pointer-events: none; z-index: 0; }
+
+/* Контент секции выше декораций */
+.underwater-scene > .relative { position: relative; z-index: 1; }
+.underwater-scene > div:not([class*="fish"]):not([class*="coral"]) { position: relative; z-index: 1; }
+
+/* ─── 12. АДАПТИВ ───────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .fish-svg,
+  .coral-svg {
+    opacity: 0.45;
+    transform: scale(0.7);
+  }
+
+  .caustics-overlay {
+    opacity: 0 !important;
+  }
+
+  .coral-card-border::before,
+  .coral-card-border::after {
+    width: 50px;
+    height: 50px;
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fish-clown,
+  .fish-tang,
+  .fish-tail,
+  .coral-sway,
+  .coral-sway-r {
+    animation: none !important;
+  }
+}

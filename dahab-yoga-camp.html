@@ -85,6 +85,8 @@
       .faq-panel { transition: none; }
     }
   </style>
+  <!-- Underwater atmosphere -->
+  <link rel="stylesheet" href="dahab-underwater.css">
 </head>
 <body class="font-sans text-slate-800 bg-gray-50 antialiased">
 
@@ -270,6 +272,10 @@
               <p class="text-xs font-bold uppercase tracking-wider text-amber-600">Один из дней</p>
               <h3 class="mt-1 font-bold text-xl text-slate-900">Каньон и темаскаль-баня</h3>
               <p class="mt-2 text-slate-600 leading-relaxed">Выезд в каньон, прогулка по красным скалам Синая и паровая церемония темаскаль прямо в каньоне. Один из самых сильных дней кэмпа.</p>
+              <figure class="mt-4 rounded-xl overflow-hidden shadow-md aspect-[16/9]">
+                <img src="assets/images/dahab-camp/canyon-sinai.jpg" alt="Каньон в Синае" class="w-full h-full object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" width="960" height="540"
+                  onerror="this.closest('figure').style.display='none'">
+              </figure>
             </article>
             <article class="relative">
               <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
@@ -395,16 +401,31 @@
 
     <!-- HOTEL -->
     <section id="hotel" class="py-20 lg:py-28 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <figure class="rounded-2xl overflow-hidden shadow-xl aspect-[4/5] order-2 lg:order-1">
-          <img src="assets/images/dahab-camp/rooftop-dahab-sea.jpg" alt="Вид на море с крыши в Дахабе" class="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="1066">
-        </figure>
-        <div class="order-1 lg:order-2">
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Отель</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">El Salam Hotel</h2>
-          <p class="mt-5 text-slate-600 leading-relaxed">Отель прямо у моря, в районе Dahab Beach. Завтраки, Wi-Fi, бассейн, ресторан и бар. Тихое место без курортного шума.</p>
-          <p class="mt-4 text-slate-600 leading-relaxed">Финальный тип номера и детали размещения подтверждаем после формирования группы.</p>
-          <a href="https://www.booking.com/hotel/eg/el-salam-dahab1.html" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-amber-600 font-semibold hover:text-amber-700 underline underline-offset-2">Посмотреть отель на Booking →</a>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <figure class="rounded-2xl overflow-hidden shadow-xl aspect-[4/5] order-2 lg:order-1">
+            <img src="assets/images/dahab-camp/rooftop-dahab-sea.jpg" alt="Вид на море с крыши El Salam Hotel" class="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="1066">
+          </figure>
+          <div class="order-1 lg:order-2">
+            <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Отель</p>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">El Salam Hotel</h2>
+            <p class="mt-5 text-slate-600 leading-relaxed">Отель прямо у моря, в районе Dahab Beach. Завтраки, Wi-Fi, бассейн, ресторан и бар. Тихое место без курортного шума.</p>
+            <p class="mt-4 text-slate-600 leading-relaxed">Финальный тип номера и детали размещения подтверждаем после формирования группы.</p>
+            <a href="https://www.booking.com/hotel/eg/el-salam-dahab1.html" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-amber-600 font-semibold hover:text-amber-700 underline underline-offset-2">Посмотреть отель на Booking →</a>
+          </div>
+        </div>
+
+        <!-- Фотогалерея отеля -->
+        <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <figure class="rounded-xl overflow-hidden aspect-[4/3] shadow-md group">
+            <img src="assets/images/dahab-camp/bougainvillea-terrace.jpg" alt="Терраса отеля" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="800" height="600">
+          </figure>
+          <figure class="rounded-xl overflow-hidden aspect-[4/3] shadow-md group">
+            <img src="assets/images/dahab-camp/sea-view-dog.jpg" alt="Вид на море из отеля" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="800" height="600">
+          </figure>
+          <figure class="rounded-xl overflow-hidden aspect-[4/3] shadow-md group col-span-2 sm:col-span-1">
+            <img src="assets/images/dahab-camp/rooftop-dahab-sea.jpg" alt="Крыша и море" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="800" height="600">
+          </figure>
         </div>
       </div>
     </section>
@@ -441,31 +462,43 @@
     </section>
 
     <!-- GALLERY -->
-    <section class="py-20 lg:py-28 bg-white" aria-label="Фотографии Дахаба">
+    <section class="py-16 lg:py-20 bg-white" aria-label="Фотографии Дахаба">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="max-w-2xl mb-12">
+        <div class="max-w-2xl mb-8">
           <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Атмосфера</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">Дахаб в кадре</h2>
-          <p class="mt-4 text-slate-600">Море, террасы, скалы и утренний свет — без постановки, как это бывает на месте.</p>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 leading-tight">Дахаб в кадре</h2>
+          <p class="mt-2 text-slate-600 text-sm">Море, террасы, скалы и утренний свет — без постановки.</p>
         </div>
-        <div class="columns-2 md:columns-3 gap-4 space-y-4">
-          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
-            <img src="assets/images/dahab-camp/telegraph-3.jpg" alt="Берег Красного моря в Дахабе" class="w-full transition duration-500 group-hover:scale-105 object-cover" loading="lazy" decoding="async" width="1280" height="720">
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-3">
+          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
+            <img src="assets/images/dahab-camp/telegraph-3.jpg" alt="Берег Красного моря" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
           </figure>
-          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
-            <img src="assets/images/dahab-camp/bougainvillea-terrace.jpg" alt="Терраса в Дахабе" class="w-full transition duration-500 group-hover:scale-105 object-cover" loading="lazy" decoding="async" width="800" height="1066">
+          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
+            <img src="assets/images/dahab-camp/bougainvillea-terrace.jpg" alt="Терраса" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
           </figure>
-          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
-            <img src="assets/images/dahab-camp/telegraph-13.jpg" alt="Голубая лагуна у Дахаба" class="w-full transition duration-500 group-hover:scale-105 object-cover" loading="lazy" decoding="async" width="720" height="1280">
+          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
+            <img src="assets/images/dahab-camp/telegraph-13.jpg" alt="Голубая лагуна" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
           </figure>
-          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
-            <img src="assets/images/dahab-camp/sea-view-dog.jpg" alt="Вид на море в Дахабе" class="w-full transition duration-500 group-hover:scale-105 object-cover" loading="lazy" decoding="async" width="800" height="1066">
+          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
+            <img src="assets/images/dahab-camp/sea-view-dog.jpg" alt="Вид на море" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
           </figure>
-          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
-            <img src="assets/images/dahab-camp/telegraph-5.jpg" alt="Закат в горах Синая" class="w-full transition duration-500 group-hover:scale-105 object-cover" loading="lazy" decoding="async" width="768" height="1024">
+          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
+            <img src="assets/images/dahab-camp/telegraph-5.jpg" alt="Закат Синай" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
           </figure>
-          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
-            <img src="assets/images/dahab-camp/girl-sea-morning.jpg" alt="Утро у моря" class="w-full transition duration-500 group-hover:scale-105 object-cover object-[center_22%]" loading="lazy" decoding="async" width="800" height="1066">
+          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
+            <img src="assets/images/dahab-camp/girl-sea-morning.jpg" alt="Утро у моря" class="w-full h-full object-cover object-[center_22%] transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
+          </figure>
+          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
+            <img src="assets/images/dahab-camp/rooftop-dahab-sea.jpg" alt="Вид с крыши" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
+          </figure>
+          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
+            <img src="assets/images/dahab-camp/women-sinai-rocks.jpg" alt="Скалы Синая" class="w-full h-full object-cover object-[center_22%] transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
+          </figure>
+          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
+            <img src="assets/images/dahab-camp/telegraph-4.jpg" alt="Фридайвинг в Красном море" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
+          </figure>
+          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
+            <img src="assets/images/dahab-camp/group-sinai-mountains.jpg" alt="Группа в горах" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
           </figure>
         </div>
       </div>
@@ -473,23 +506,67 @@
 
     <!-- TEAM -->
     <section id="team" class="py-20 lg:py-28 bg-gray-50">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6">
-        <div class="grid md:grid-cols-[280px_1fr] rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-xl">
-          <figure class="aspect-square md:aspect-auto md:min-h-full">
-            <img src="assets/images/author-2.png" alt="Илья Баринов" class="w-full h-full object-cover object-[center_12%]" loading="lazy" decoding="async" width="400" height="400">
-          </figure>
-          <div class="p-8 lg:p-10 flex flex-col justify-center">
-            <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">Преподаватель</p>
-            <h2 class="font-display font-bold text-3xl text-slate-900">Илья Баринов</h2>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-100">🏆 3-кратный чемпион Европы</span>
-              <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🧬 Кинезиолог-реабилитолог</span>
-              <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🧘‍♂️ Практика 20+ лет</span>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="max-w-2xl mb-12">
+          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Команда</p>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">Кто ведёт кэмп</h2>
+          <p class="mt-4 text-slate-600">Три мастера — практики, которые дополняют друг друга.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <!-- Илья Баринов -->
+          <article class="flex flex-col rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-lg">
+            <figure class="aspect-[3/4] overflow-hidden">
+              <img src="assets/images/author-2.png" alt="Илья Баринов" class="w-full h-full object-cover object-[center_12%] transition duration-500 hover:scale-105" loading="lazy" decoding="async" width="400" height="533">
+            </figure>
+            <div class="p-6 flex flex-col flex-1">
+              <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-1">Преподаватель йоги и цигун</p>
+              <h3 class="font-display font-bold text-xl text-slate-900">Илья Баринов</h3>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-100">🏆 3-кратный чемпион Европы</span>
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🧬 Кинезиолог-реабилитолог</span>
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🧘‍♂️ Практика 20+ лет</span>
+              </div>
+              <p class="mt-3 text-sm text-slate-600 leading-relaxed flex-1">Практикует и преподаёт йогу и цигун более 15 лет. Ведёт регулярные классы и выездные интенсивы. Дахаб знает изнутри — горы, море и практика для него неотделимы.</p>
+              <a href="https://t.me/vsemaya" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-amber-600 font-semibold hover:text-amber-700 text-sm">Telegram @vsemaya →</a>
             </div>
-            <p class="mt-4 text-slate-600 leading-relaxed">Практикует и преподаёт йогу и цигун более 15 лет. Ведёт регулярные классы и выездные интенсивы. Занимается горным туризмом и скалолазанием — Дахаб для него место, которое знает изнутри.</p>
-            <p class="mt-3 text-slate-600 leading-relaxed">Стиль работы: без давления, без соревнования. Практика подстраивается под группу и состояние каждого.</p>
-            <a href="https://t.me/vsemaya" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-amber-600 font-semibold hover:text-amber-700">Telegram @vsemaya →</a>
-          </div>
+          </article>
+
+          <!-- Андрей Баранов -->
+          <article class="flex flex-col rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-lg">
+            <figure class="aspect-[3/4] overflow-hidden bg-slate-100">
+              <img src="assets/images/dahab-camp/andrey-baranov.jpg" alt="Андрей Баранов" class="w-full h-full object-cover object-[center_15%] transition duration-500 hover:scale-105" loading="lazy" decoding="async" width="400" height="533"
+                onerror="this.closest('figure').style.background='#f1f5f9';this.style.display='none'">
+            </figure>
+            <div class="p-6 flex flex-col flex-1">
+              <p class="text-xs font-bold uppercase tracking-widest text-cyan-600 mb-1">Мастер цигун</p>
+              <h3 class="font-display font-bold text-xl text-slate-900">Андрей Баранов</h3>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-cyan-50 text-cyan-900 border border-cyan-100">☯️ Цигун и нэйгун</span>
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🌿 Практика 15+ лет</span>
+              </div>
+              <p class="mt-3 text-sm text-slate-600 leading-relaxed flex-1">Преподаёт цигун и внутренние практики. Работает с дыханием, энергетикой и осознанным движением. Его занятия помогают перейти от физического усилия к ощущению изнутри.</p>
+            </div>
+          </article>
+
+          <!-- Анастасия Якименко -->
+          <article class="flex flex-col rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-lg">
+            <figure class="aspect-[3/4] overflow-hidden bg-slate-100">
+              <img src="assets/images/dahab-camp/anastasia-yakimenko.jpg" alt="Анастасия Якименко" class="w-full h-full object-cover object-[center_15%] transition duration-500 hover:scale-105" loading="lazy" decoding="async" width="400" height="533"
+                onerror="this.closest('figure').style.background='#f0f9ff';this.style.display='none'">
+            </figure>
+            <div class="p-6 flex flex-col flex-1">
+              <p class="text-xs font-bold uppercase tracking-widest text-sky-600 mb-1">Инструктор фридайвинга</p>
+              <h3 class="font-display font-bold text-xl text-slate-900">Анастасия Якименко</h3>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-sky-50 text-sky-900 border border-sky-100">🤿 Фридайвинг AIDA</span>
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🌊 Красное море</span>
+              </div>
+              <p class="mt-3 text-sm text-slate-600 leading-relaxed flex-1">Сертифицированный инструктор фридайвинга. Ведёт базовый курс погружений для участников кэмпа: безопасность, дыхание и расслабление в воде. Программа стыкуется с практиками йоги и медитации.</p>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -812,5 +889,9 @@
       });
     })();
   </script>
+  <!-- Underwater: bubbles canvas + caustics overlay -->
+  <canvas id="bubbles-canvas" aria-hidden="true"></canvas>
+  <div class="caustics-overlay" aria-hidden="true"></div>
+  <script src="dahab-underwater.js" defer></script>
 </body>
 </html>
