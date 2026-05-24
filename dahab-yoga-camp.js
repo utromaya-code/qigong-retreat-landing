@@ -174,12 +174,12 @@ if (requestForm) {
       const heroH = document.querySelector(".hero").offsetHeight;
       if (scrollY > heroH) return;
       // Move image at 40% of scroll speed = subtle depth effect
-      heroImg.style.transform = `translateY(${scrollY * 0.38}px) scale(1.08)`;
+      heroImg.style.transform = `translateY(${scrollY * 0.22}px) scale(1.04)`;
     });
   }
 
   // Initial scale to avoid white edges during parallax
-  heroImg.style.transform = "translateY(0) scale(1.08)";
+  heroImg.style.transform = "translateY(0) scale(1.04)";
   heroImg.style.willChange = "transform";
   window.addEventListener("scroll", onScroll, { passive: true });
 })();
@@ -353,7 +353,7 @@ if (requestForm) {
 
 // ── GALLERY LIGHTBOX ─────────────────────────
 (function () {
-  const galleryImgs = document.querySelectorAll(".gallery-grid img");
+  const galleryImgs = document.querySelectorAll(".gallery-mosaic img");
   if (!galleryImgs.length) return;
 
   // Create lightbox
@@ -395,8 +395,9 @@ if (requestForm) {
   function goNext() { openLb((currentIdx + 1) % imgs.length); }
 
   imgs.forEach((img, i) => {
-    img.style.cursor = "zoom-in";
-    img.addEventListener("click", () => openLb(i));
+    const frame = img.closest(".media-frame");
+    const target = frame || img;
+    target.addEventListener("click", () => openLb(i));
   });
 
   lb.querySelector(".lb-backdrop").addEventListener("click", closeLb);
