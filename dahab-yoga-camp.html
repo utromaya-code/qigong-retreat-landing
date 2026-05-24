@@ -76,9 +76,14 @@
     };
   </script>
   <style>
-    details summary { list-style: none; cursor: pointer; }
-    details summary::-webkit-details-marker { display: none; }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    html { scroll-behavior: smooth; }
+    .faq-panel { transition: max-height 0.35s ease, opacity 0.3s ease; }
+    .faq-chevron { transition: transform 0.3s ease; }
+    .faq-item.is-open .faq-chevron { transform: rotate(180deg); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .faq-panel { transition: none; }
+    }
   </style>
 </head>
 <body class="font-sans text-slate-800 bg-gray-50 antialiased">
@@ -86,7 +91,7 @@
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:rounded-lg focus:shadow-lg">Перейти к содержанию</a>
 
   <!-- HEADER -->
-  <header id="header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-transparent">
+  <header id="header" class="fixed top-0 inset-x-0 z-50 transition-all duration-500 bg-transparent border-b border-transparent">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 lg:h-[72px]">
       <a href="#hero" class="flex items-center gap-2.5 text-white font-display font-bold text-lg" aria-label="К началу страницы">
         <img src="assets/images/logo-barinov.svg" alt="" width="36" height="36" class="brightness-0 invert" decoding="async">
@@ -227,130 +232,107 @@
       </div>
     </section>
 
-    <!-- DAY RHYTHM -->
-    <section class="py-20 lg:py-28 bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="max-w-2xl mb-12 lg:mb-16">
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Как устроен день</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">Три ритма — без расписания по минутам</h2>
-        </div>
-
-        <div class="space-y-8">
-          <div class="grid lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-slate-100 shadow-sm bg-gray-50">
-            <figure class="aspect-[4/5] lg:aspect-auto lg:min-h-[320px]">
-              <img src="assets/images/dahab-camp/telegraph-7.jpg" alt="Утренняя практика йоги" class="w-full h-full object-cover object-[center_20%]" loading="lazy" decoding="async" width="945" height="1600">
-            </figure>
-            <div class="p-8 lg:p-10 flex flex-col justify-center">
-              <span class="text-xs font-bold uppercase tracking-widest text-amber-600">Утро</span>
-              <h3 class="mt-2 font-bold text-2xl text-slate-900">Йога и медитация</h3>
-              <p class="mt-4 text-slate-600 leading-relaxed">Практика на пробуждение тела — йога для спины, суставов и баланса, короткие медитативные паузы, дыхание и мягкая суставная разминка. Без спешки, без целеполагания. Просто войти в день с ясной головой.</p>
-              <p class="mt-3 text-slate-600 leading-relaxed">Практики ведёт Илья Баринов — они подходят как новичкам, так и тем, кто практикует давно.</p>
-            </div>
-          </div>
-
-          <div class="grid lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-slate-100 shadow-sm bg-gray-50">
-            <figure class="aspect-[4/5] lg:aspect-auto lg:min-h-[320px] lg:order-2">
-              <img src="assets/images/dahab-camp/women-sinai-rocks.jpg" alt="Группа на скалах Синая" class="w-full h-full object-cover object-[center_22%]" loading="lazy" decoding="async" width="1080" height="1350">
-            </figure>
-            <div class="p-8 lg:p-10 flex flex-col justify-center lg:order-1">
-              <span class="text-xs font-bold uppercase tracking-widest text-amber-600">День</span>
-              <h3 class="mt-2 font-bold text-2xl text-slate-900">Выезды и море</h3>
-              <p class="mt-4 text-slate-600 leading-relaxed">Каньон с темаскаль-баней, заповедный Абу-Галум и Голубая лагуна, скалы Синая с горным клубом — для тех, кто хочет чуть больше адреналина. Или просто свободное море, снорклинг и шезлонг. Никто не обязан никуда ехать.</p>
-            </div>
-          </div>
-
-          <div class="grid lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-slate-100 shadow-sm bg-gray-50">
-            <figure class="aspect-[4/5] lg:aspect-auto lg:min-h-[320px]">
-              <img src="assets/images/dahab-camp/telegraph-5.jpg" alt="Вечерние практики восстановления" class="w-full h-full object-cover" loading="lazy" decoding="async" width="768" height="1024">
-            </figure>
-            <div class="p-8 lg:p-10 flex flex-col justify-center">
-              <span class="text-xs font-bold uppercase tracking-widest text-amber-600">Вечер</span>
-              <h3 class="mt-2 font-bold text-2xl text-slate-900">Восстановление</h3>
-              <p class="mt-4 text-slate-600 leading-relaxed">Медитативные практики на снятие напряжения, мягкая растяжка и дыхание перед сном. Нервная система отдыхает вместе с телом. Тишина вечеров Дахаба — отдельная ценность этого места.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROGRAM -->
+    <!-- PROGRAM (tabs) -->
     <section id="program" class="py-20 lg:py-28 bg-gray-50">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="max-w-2xl mb-12 lg:mb-16">
+        <div class="max-w-2xl mb-10 lg:mb-12">
           <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Программа</p>
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">11 дней в Дахабе</h2>
           <p class="mt-4 text-slate-600 text-lg leading-relaxed">Порядок дней подстраивается под ветер, приливы и ритм группы. Но «скелет» остаётся: йога, медитации, море, каньон, Абу-Галум, вечера без перегруза.</p>
         </div>
 
-        <div class="grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-12 items-start">
-          <div class="space-y-4">
-            <article class="flex gap-5 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm">
-              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-500 text-slate-900 font-extrabold text-lg flex items-center justify-center">01</span>
-              <div>
-                <p class="text-xs font-bold uppercase tracking-wider text-amber-600">11 ноября</p>
-                <h3 class="mt-1 font-bold text-lg text-slate-900">Приезд и заселение</h3>
-                <p class="mt-2 text-slate-600 text-sm leading-relaxed">Встреча в Шарм-Эль-Шейхе, трансфер в Дахаб, заселение, знакомство группы и мягкая вечерняя практика.</p>
-              </div>
+        <div class="inline-flex flex-wrap gap-2 p-1.5 rounded-2xl bg-white border border-slate-200 shadow-sm mb-10" role="tablist" aria-label="Разделы программы">
+          <button type="button" id="tab-btn-route" role="tab" aria-selected="true" aria-controls="tab-panel-route" data-program-tab="route" class="program-tab px-5 py-2.5 rounded-xl text-sm font-bold transition-all bg-slate-900 text-white shadow-md">
+            Главный маршрут
+          </button>
+          <button type="button" id="tab-btn-practices" role="tab" aria-selected="false" aria-controls="tab-panel-practices" data-program-tab="practices" class="program-tab px-5 py-2.5 rounded-xl text-sm font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-50">
+            Сетка практик Ильи
+          </button>
+        </div>
+
+        <!-- Tab 1: Timeline -->
+        <div id="tab-panel-route" role="tabpanel" aria-labelledby="tab-btn-route" class="program-panel">
+          <div class="relative pl-8 sm:pl-10 border-l-2 border-amber-200 space-y-10">
+            <article class="relative">
+              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
+              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">11 ноября</p>
+              <h3 class="mt-1 font-bold text-xl text-slate-900">Приезд и заселение</h3>
+              <p class="mt-2 text-slate-600 leading-relaxed">Встреча в Шарм-Эль-Шейхе, трансфер в Дахаб, заселение, знакомство группы и мягкая вечерняя практика.</p>
             </article>
-            <article class="flex gap-5 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm">
-              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-500 text-slate-900 font-extrabold text-lg flex items-center justify-center">02</span>
-              <div>
-                <p class="text-xs font-bold uppercase tracking-wider text-amber-600">12–14 ноября</p>
-                <h3 class="mt-1 font-bold text-lg text-slate-900">Йога, медитации, адаптация</h3>
-                <p class="mt-2 text-slate-600 text-sm leading-relaxed">Утренние и вечерние занятия, короткие медитативные блоки, море и прогулки по Дахабу — мягко входим в климат и ритм группы.</p>
-              </div>
+            <article class="relative">
+              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
+              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">12–14 ноября</p>
+              <h3 class="mt-1 font-bold text-xl text-slate-900">Йога, медитации, адаптация</h3>
+              <p class="mt-2 text-slate-600 leading-relaxed">Утренние и вечерние занятия, короткие медитативные блоки, море и прогулки по Дахабу — мягко входим в климат и ритм группы.</p>
             </article>
-            <article class="flex gap-5 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm">
-              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-500 text-slate-900 font-extrabold text-lg flex items-center justify-center">03</span>
-              <div>
-                <p class="text-xs font-bold uppercase tracking-wider text-amber-600">Один из дней</p>
-                <h3 class="mt-1 font-bold text-lg text-slate-900">Каньон и темаскаль-баня</h3>
-                <p class="mt-2 text-slate-600 text-sm leading-relaxed">Выезд в каньон, прогулка по красным скалам Синая и паровая церемония темаскаль прямо в каньоне. Один из самых сильных дней кэмпа.</p>
-              </div>
+            <article class="relative">
+              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
+              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">Один из дней</p>
+              <h3 class="mt-1 font-bold text-xl text-slate-900">Каньон и темаскаль-баня</h3>
+              <p class="mt-2 text-slate-600 leading-relaxed">Выезд в каньон, прогулка по красным скалам Синая и паровая церемония темаскаль прямо в каньоне. Один из самых сильных дней кэмпа.</p>
             </article>
-            <article class="flex gap-5 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm">
-              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-500 text-slate-900 font-extrabold text-lg flex items-center justify-center">04</span>
-              <div>
-                <p class="text-xs font-bold uppercase tracking-wider text-amber-600">Один из дней</p>
-                <h3 class="mt-1 font-bold text-lg text-slate-900">Скалы и горный Синай</h3>
-                <p class="mt-2 text-slate-600 text-sm leading-relaxed">По желанию группы — пробное скалолазание или однодневная программа с Дахабским горным клубом. Детали и стоимость согласуем заранее.</p>
-                <p class="mt-2"><a href="https://mountain.dahab.pro/taxonomy/term/43" target="_blank" rel="noopener noreferrer" class="text-amber-600 font-semibold hover:text-amber-700 underline underline-offset-2">Программы туров на скалах →</a></p>
-              </div>
+            <article class="relative">
+              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
+              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">Один из дней</p>
+              <h3 class="mt-1 font-bold text-xl text-slate-900">Скалы и горный Синай</h3>
+              <p class="mt-2 text-slate-600 leading-relaxed">По желанию группы — пробное скалолазание или однодневная программа с Дахабским горным клубом. Детали и стоимость согласуем заранее.</p>
+              <p class="mt-2"><a href="https://mountain.dahab.pro/taxonomy/term/43" target="_blank" rel="noopener noreferrer" class="text-amber-600 font-semibold hover:text-amber-700 underline underline-offset-2">Программы туров на скалах →</a></p>
             </article>
-            <article class="flex gap-5 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm">
-              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-500 text-slate-900 font-extrabold text-lg flex items-center justify-center">05</span>
-              <div>
-                <p class="text-xs font-bold uppercase tracking-wider text-amber-600">Один из дней</p>
-                <h3 class="mt-1 font-bold text-lg text-slate-900">Абу-Галум и Голубая лагуна</h3>
-                <p class="mt-2 text-slate-600 text-sm leading-relaxed">Поездка к заповедному побережью, бирюзовая вода, спокойный день для купания и созерцания.</p>
-              </div>
+            <article class="relative">
+              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
+              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">Один из дней</p>
+              <h3 class="mt-1 font-bold text-xl text-slate-900">Абу-Галум и Голубая лагуна</h3>
+              <p class="mt-2 text-slate-600 leading-relaxed">Поездка к заповедному побережью, бирюзовая вода, спокойный день для купания и созерцания.</p>
             </article>
-            <article class="flex gap-5 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm">
-              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-500 text-slate-900 font-extrabold text-lg flex items-center justify-center">06</span>
-              <div>
-                <p class="text-xs font-bold uppercase tracking-wider text-amber-600">21 ноября</p>
-                <h3 class="mt-1 font-bold text-lg text-slate-900">Завершение и выезд</h3>
-                <p class="mt-2 text-slate-600 text-sm leading-relaxed">Финальная практика, сборы, трансфер в аэропорт Шарм-Эль-Шейха.</p>
-              </div>
+            <article class="relative">
+              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
+              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">21 ноября</p>
+              <h3 class="mt-1 font-bold text-xl text-slate-900">Завершение и выезд</h3>
+              <p class="mt-2 text-slate-600 leading-relaxed">Финальная практика, сборы, трансфер в аэропорт Шарм-Эль-Шейха.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Tab 2: Practices -->
+        <div id="tab-panel-practices" role="tabpanel" aria-labelledby="tab-btn-practices" class="program-panel hidden">
+          <p class="text-slate-600 mb-8 max-w-2xl leading-relaxed">Три ритма — без расписания по минутам. Утром и вечером — практики с Ильёй, днём — море, выезды или тишина по желанию.</p>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <article class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
+              <span class="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 px-3 py-1 rounded-full bg-amber-50">Утро</span>
+              <h3 class="mt-4 font-bold text-xl text-slate-900">Йога и медитация</h3>
+              <p class="mt-3 text-slate-600 text-sm leading-relaxed">Практика на пробуждение тела — йога для спины, суставов и баланса, короткие медитативные паузы, дыхание и мягкая суставная разминка. Без спешки, без целеполагания. Просто войти в день с ясной головой.</p>
+              <p class="mt-3 text-slate-600 text-sm leading-relaxed">Практики ведёт Илья Баринов — они подходят как новичкам, так и тем, кто практикует давно.</p>
+            </article>
+            <article class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
+              <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-600 px-3 py-1 rounded-full bg-indigo-50">Вечер</span>
+              <h3 class="mt-4 font-bold text-xl text-slate-900">Восстановление</h3>
+              <p class="mt-3 text-slate-600 text-sm leading-relaxed">Медитативные практики на снятие напряжения, мягкая растяжка и дыхание перед сном. Нервная система отдыхает вместе с телом. Тишина вечеров Дахаба — отдельная ценность этого места.</p>
             </article>
           </div>
 
-          <aside class="rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-lg lg:sticky lg:top-24">
-            <figure class="aspect-[4/5]">
-              <img src="assets/images/dahab-camp/group-sinai-mountains.jpg" alt="Группа кэмпа на горах Синая" class="w-full h-full object-cover object-[center_22%]" loading="lazy" decoding="async" width="1080" height="1350">
-            </figure>
-            <div class="p-6">
+          <article class="mt-6 p-8 rounded-2xl bg-white border border-dashed border-slate-200">
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-slate-500 px-3 py-1 rounded-full bg-slate-100">День</span>
+            <h3 class="mt-4 font-bold text-lg text-slate-900">Выезды и море</h3>
+            <p class="mt-2 text-slate-600 text-sm leading-relaxed">Каньон с темаскаль-баней, заповедный Абу-Галум и Голубая лагуна, скалы Синая с горным клубом — для тех, кто хочет чуть больше адреналина. Или просто свободное море, снорклинг и шезлонг. Никто не обязан никуда ехать.</p>
+          </article>
+
+          <div class="mt-8 grid lg:grid-cols-[1fr_280px] gap-8 items-start p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
+            <div>
               <h3 class="font-bold text-xl text-slate-900">Практики с Ильёй</h3>
-              <ul class="mt-4 space-y-2 text-slate-600 text-sm leading-relaxed list-disc pl-5">
-                <li>йога для спины, суставов и баланса;</li>
-                <li>медитации: работа с вниманием и опорой;</li>
-                <li>дыхательные техники и прана-вьяяма;</li>
-                <li>мягкая силовая работа и восстановление;</li>
-                <li>глубокое расслабление и осознанность;</li>
-                <li>элементы цигун как поддержка тела.</li>
+              <ul class="mt-4 space-y-2.5 text-slate-600 text-sm leading-relaxed">
+                <li class="flex gap-2"><span class="text-amber-500">—</span> йога для спины, суставов и баланса;</li>
+                <li class="flex gap-2"><span class="text-amber-500">—</span> медитации: работа с вниманием и опорой;</li>
+                <li class="flex gap-2"><span class="text-amber-500">—</span> дыхательные техники и прана-вьяяма;</li>
+                <li class="flex gap-2"><span class="text-amber-500">—</span> мягкая силовая работа и восстановление;</li>
+                <li class="flex gap-2"><span class="text-amber-500">—</span> глубокое расслабление и осознанность;</li>
+                <li class="flex gap-2"><span class="text-amber-500">—</span> элементы цигун как поддержка тела.</li>
               </ul>
             </div>
-          </aside>
+            <figure class="hidden lg:block overflow-hidden rounded-2xl aspect-[4/5]">
+              <img src="assets/images/dahab-camp/group-sinai-mountains.jpg" alt="Группа кэмпа на горах Синая" class="w-full h-full object-cover object-[center_22%] transition duration-500 hover:scale-105" loading="lazy" decoding="async" width="1080" height="1350">
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -466,24 +448,24 @@
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">Дахаб в кадре</h2>
           <p class="mt-4 text-slate-600">Море, террасы, скалы и утренний свет — без постановки, как это бывает на месте.</p>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <figure class="col-span-2 row-span-2 rounded-xl overflow-hidden aspect-square md:aspect-auto md:min-h-[280px]">
-            <img src="assets/images/dahab-camp/telegraph-3.jpg" alt="Берег Красного моря в Дахабе" class="w-full h-full object-cover" loading="lazy" decoding="async" width="1280" height="720">
+        <div class="columns-2 md:columns-3 gap-4 space-y-4">
+          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
+            <img src="assets/images/dahab-camp/telegraph-3.jpg" alt="Берег Красного моря в Дахабе" class="w-full transition duration-500 group-hover:scale-105 object-cover" loading="lazy" decoding="async" width="1280" height="720">
           </figure>
-          <figure class="rounded-xl overflow-hidden aspect-[4/5]">
-            <img src="assets/images/dahab-camp/bougainvillea-terrace.jpg" alt="Терраса в Дахабе" class="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="1066">
+          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
+            <img src="assets/images/dahab-camp/bougainvillea-terrace.jpg" alt="Терраса в Дахабе" class="w-full transition duration-500 group-hover:scale-105 object-cover" loading="lazy" decoding="async" width="800" height="1066">
           </figure>
-          <figure class="rounded-xl overflow-hidden aspect-[4/5]">
-            <img src="assets/images/dahab-camp/telegraph-13.jpg" alt="Голубая лагуна у Дахаба" class="w-full h-full object-cover" loading="lazy" decoding="async" width="720" height="1280">
+          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
+            <img src="assets/images/dahab-camp/telegraph-13.jpg" alt="Голубая лагуна у Дахаба" class="w-full transition duration-500 group-hover:scale-105 object-cover" loading="lazy" decoding="async" width="720" height="1280">
           </figure>
-          <figure class="rounded-xl overflow-hidden aspect-[4/5]">
-            <img src="assets/images/dahab-camp/sea-view-dog.jpg" alt="Вид на море в Дахабе" class="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="1066">
+          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
+            <img src="assets/images/dahab-camp/sea-view-dog.jpg" alt="Вид на море в Дахабе" class="w-full transition duration-500 group-hover:scale-105 object-cover" loading="lazy" decoding="async" width="800" height="1066">
           </figure>
-          <figure class="rounded-xl overflow-hidden aspect-[4/5]">
-            <img src="assets/images/dahab-camp/telegraph-5.jpg" alt="Закат в горах Синая" class="w-full h-full object-cover" loading="lazy" decoding="async" width="768" height="1024">
+          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
+            <img src="assets/images/dahab-camp/telegraph-5.jpg" alt="Закат в горах Синая" class="w-full transition duration-500 group-hover:scale-105 object-cover" loading="lazy" decoding="async" width="768" height="1024">
           </figure>
-          <figure class="col-span-2 rounded-xl overflow-hidden aspect-[21/9]">
-            <img src="assets/images/dahab-camp/girl-sea-morning.jpg" alt="Утро у моря" class="w-full h-full object-cover object-[center_22%]" loading="lazy" decoding="async" width="800" height="1066">
+          <figure class="break-inside-avoid overflow-hidden rounded-2xl shadow-md group">
+            <img src="assets/images/dahab-camp/girl-sea-morning.jpg" alt="Утро у моря" class="w-full transition duration-500 group-hover:scale-105 object-cover object-[center_22%]" loading="lazy" decoding="async" width="800" height="1066">
           </figure>
         </div>
       </div>
@@ -499,6 +481,11 @@
           <div class="p-8 lg:p-10 flex flex-col justify-center">
             <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">Преподаватель</p>
             <h2 class="font-display font-bold text-3xl text-slate-900">Илья Баринов</h2>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-100">🏆 3-кратный чемпион Европы</span>
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🧬 Кинезиолог-реабилитолог</span>
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🧘‍♂️ Практика 20+ лет</span>
+            </div>
             <p class="mt-4 text-slate-600 leading-relaxed">Практикует и преподаёт йогу и цигун более 15 лет. Ведёт регулярные классы и выездные интенсивы. Занимается горным туризмом и скалолазанием — Дахаб для него место, которое знает изнутри.</p>
             <p class="mt-3 text-slate-600 leading-relaxed">Стиль работы: без давления, без соревнования. Практика подстраивается под группу и состояние каждого.</p>
             <a href="https://t.me/vsemaya" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-amber-600 font-semibold hover:text-amber-700">Telegram @vsemaya →</a>
@@ -566,48 +553,60 @@
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900">Коротко о важном</h2>
         </div>
         <div class="space-y-3" id="faq-accordion">
-          <details class="group rounded-xl bg-white border border-slate-100 shadow-sm open:border-amber-200 open:shadow-md">
-            <summary class="flex items-center justify-between gap-4 p-5 font-bold text-slate-900">
+          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
               Нужен ли опыт в йоге и медитации?
-              <span class="flex-shrink-0 text-amber-500 text-xl group-open:rotate-45 transition-transform">+</span>
-            </summary>
-            <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Нет. Практики подстраиваются под уровень группы: можно углубляться или оставаться в мягком режиме. Напишите заранее о травмах, ограничениях и том, что для вас комфортно.</p>
-          </details>
-          <details class="group rounded-xl bg-white border border-slate-100 shadow-sm open:border-amber-200 open:shadow-md">
-            <summary class="flex items-center justify-between gap-4 p-5 font-bold text-slate-900">
+              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
+              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Нет. Практики подстраиваются под уровень группы: можно углубляться или оставаться в мягком режиме. Напишите заранее о травмах, ограничениях и том, что для вас комфортно.</p>
+            </div>
+          </div>
+          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
               Можно ли без фридайвинга и без скал?
-              <span class="flex-shrink-0 text-amber-500 text-xl group-open:rotate-45 transition-transform">+</span>
-            </summary>
-            <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Да. И фридайвинг, и выход к скалам — по желанию. Основа кэмпа — йога, медитации, море и общие выезды в каньон и Абу-Галум.</p>
-          </details>
-          <details class="group rounded-xl bg-white border border-slate-100 shadow-sm open:border-amber-200 open:shadow-md">
-            <summary class="flex items-center justify-between gap-4 p-5 font-bold text-slate-900">
+              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
+              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Да. И фридайвинг, и выход к скалам — по желанию. Основа кэмпа — йога, медитации, море и общие выезды в каньон и Абу-Галум.</p>
+            </div>
+          </div>
+          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
               Когда покупать билеты?
-              <span class="flex-shrink-0 text-amber-500 text-xl group-open:rotate-45 transition-transform">+</span>
-            </summary>
-            <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">После подтверждения места мы пришлём в Telegram рекомендованные варианты перелёта и стыковок, чтобы удобно попасть в общий трансфер из Шарм-Эль-Шейха.</p>
-          </details>
-          <details class="group rounded-xl bg-white border border-slate-100 shadow-sm open:border-amber-200 open:shadow-md">
-            <summary class="flex items-center justify-between gap-4 p-5 font-bold text-slate-900">
+              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
+              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">После подтверждения места мы пришлём в Telegram рекомендованные варианты перелёта и стыковок, чтобы удобно попасть в общий трансфер из Шарм-Эль-Шейха.</p>
+            </div>
+          </div>
+          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
               Как устроено питание?
-              <span class="flex-shrink-0 text-amber-500 text-xl group-open:rotate-45 transition-transform">+</span>
-            </summary>
-            <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">В стоимость входят завтраки в отеле. Обеды и ужины оплачиваются отдельно, в Дахабе много кафе рядом с морем.</p>
-          </details>
-          <details class="group rounded-xl bg-white border border-slate-100 shadow-sm open:border-amber-200 open:shadow-md">
-            <summary class="flex items-center justify-between gap-4 p-5 font-bold text-slate-900">
+              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
+              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">В стоимость входят завтраки в отеле. Обеды и ужины оплачиваются отдельно, в Дахабе много кафе рядом с морем.</p>
+            </div>
+          </div>
+          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
               Сколько человек в группе?
-              <span class="flex-shrink-0 text-amber-500 text-xl group-open:rotate-45 transition-transform">+</span>
-            </summary>
-            <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Максимум 15 участников. Маленькая группа — это осознанный выбор: так больше внимания каждому и лучше атмосфера.</p>
-          </details>
-          <details class="group rounded-xl bg-white border border-slate-100 shadow-sm open:border-amber-200 open:shadow-md">
-            <summary class="flex items-center justify-between gap-4 p-5 font-bold text-slate-900">
+              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
+              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Максимум 15 участников. Маленькая группа — это осознанный выбор: так больше внимания каждому и лучше атмосфера.</p>
+            </div>
+          </div>
+          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
               Что если планы изменятся? Вернётся ли предоплата?
-              <span class="flex-shrink-0 text-amber-500 text-xl group-open:rotate-45 transition-transform">+</span>
-            </summary>
-            <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Предоплата 40 000 ₽ возвращается в полном объёме при отмене не позднее чем за 30 дней до старта (до 12 октября 2026). Если сроки сжимаются — напишите в Telegram, обсудим перенос или индивидуальное решение.</p>
-          </details>
+              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
+              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Предоплата 40 000 ₽ возвращается в полном объёме при отмене не позднее чем за 30 дней до старта (до 12 октября 2026). Если сроки сжимаются — напишите в Telegram, обсудим перенос или индивидуальное решение.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -646,11 +645,10 @@
     </section>
   </main>
 
-  <!-- Mobile CTA -->
-  <div class="fixed bottom-0 inset-x-0 z-40 lg:hidden p-3 bg-white/95 backdrop-blur border-t border-slate-200 flex gap-3 safe-area-pb" role="region" aria-label="Быстрая запись">
-    <a href="#request" class="flex-1 text-center py-3 rounded-xl bg-amber-500 text-slate-900 font-bold text-sm">Заявка</a>
-    <a href="https://t.me/vsemaya" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 rounded-xl bg-[#229ED9] text-white font-bold text-sm">Telegram</a>
-  </div>
+  <!-- Mobile sticky CTA (after hero) -->
+  <a id="mobile-book-cta" href="#request" class="md:hidden fixed bottom-5 left-4 right-4 z-40 py-4 rounded-2xl bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-center shadow-2xl shadow-amber-500/40 translate-y-24 opacity-0 pointer-events-none transition-all duration-500" role="region" aria-label="Быстрое бронирование">
+    Забронировать место
+  </a>
 
   <footer class="bg-slate-900 text-slate-400 py-12 pb-24 lg:pb-12 border-t border-white/10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
@@ -708,14 +706,27 @@
       const nav = document.getElementById('site-nav');
       const links = nav?.querySelectorAll('a') || [];
 
+      const hero = document.getElementById('hero');
+      const mobileCta = document.getElementById('mobile-book-cta');
+
       function onScroll() {
-        if (!header) return;
-        if (window.scrollY > 40) {
-          header.classList.add('bg-slate-900/95', 'backdrop-blur-md', 'shadow-lg', 'border-b', 'border-white/5');
-          header.classList.remove('bg-transparent');
-        } else {
-          header.classList.remove('bg-slate-900/95', 'backdrop-blur-md', 'shadow-lg', 'border-b', 'border-white/5');
-          header.classList.add('bg-transparent');
+        if (header) {
+          if (window.scrollY > 24) {
+            header.classList.add('bg-slate-900/80', 'backdrop-blur-md', 'shadow-lg', 'border-white/10');
+            header.classList.remove('bg-transparent', 'border-transparent');
+          } else {
+            header.classList.remove('bg-slate-900/80', 'backdrop-blur-md', 'shadow-lg', 'border-white/10');
+            header.classList.add('bg-transparent', 'border-transparent');
+          }
+        }
+        if (mobileCta && hero) {
+          const pastHero = hero.getBoundingClientRect().bottom < 0;
+          mobileCta.classList.toggle('translate-y-24', !pastHero);
+          mobileCta.classList.toggle('opacity-0', !pastHero);
+          mobileCta.classList.toggle('pointer-events-none', !pastHero);
+          mobileCta.classList.toggle('translate-y-0', pastHero);
+          mobileCta.classList.toggle('opacity-100', pastHero);
+          mobileCta.classList.toggle('pointer-events-auto', pastHero);
         }
       }
       window.addEventListener('scroll', onScroll, { passive: true });
@@ -741,6 +752,64 @@
       });
 
       links.forEach((a) => a.addEventListener('click', closeNav));
+    })();
+
+    (function () {
+      const tabs = document.querySelectorAll('[data-program-tab]');
+      const panels = {
+        route: document.getElementById('tab-panel-route'),
+        practices: document.getElementById('tab-panel-practices'),
+      };
+      const active = ['bg-slate-900', 'text-white', 'shadow-md'];
+      const inactive = ['text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-50'];
+
+      function setTab(name) {
+        tabs.forEach((btn) => {
+          const on = btn.dataset.programTab === name;
+          btn.setAttribute('aria-selected', String(on));
+          btn.classList.remove('bg-slate-900', 'text-white', 'shadow-md', 'text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-50');
+          if (on) btn.classList.add(...active);
+          else btn.classList.add(...inactive);
+        });
+        Object.keys(panels).forEach((key) => {
+          if (!panels[key]) return;
+          panels[key].classList.toggle('hidden', key !== name);
+        });
+      }
+
+      tabs.forEach((btn) => btn.addEventListener('click', () => setTab(btn.dataset.programTab)));
+    })();
+
+    (function () {
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach((item) => {
+        const trigger = item.querySelector('.faq-trigger');
+        const panel = item.querySelector('.faq-panel');
+        if (!trigger || !panel) return;
+
+        trigger.addEventListener('click', () => {
+          const isOpen = item.classList.contains('is-open');
+          items.forEach((other) => {
+            if (other === item) return;
+            other.classList.remove('is-open');
+            const p = other.querySelector('.faq-panel');
+            const t = other.querySelector('.faq-trigger');
+            if (p) p.style.maxHeight = '0px';
+            if (t) t.setAttribute('aria-expanded', 'false');
+            other.classList.remove('border-amber-200', 'shadow-md');
+          });
+
+          if (isOpen) {
+            item.classList.remove('is-open', 'border-amber-200', 'shadow-md');
+            panel.style.maxHeight = '0px';
+            trigger.setAttribute('aria-expanded', 'false');
+          } else {
+            item.classList.add('is-open', 'border-amber-200', 'shadow-md');
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
     })();
   </script>
 </body>
