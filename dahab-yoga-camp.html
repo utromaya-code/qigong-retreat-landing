@@ -1,18 +1,20 @@
 <!doctype html>
-<html lang="ru" class="scroll-smooth">
+<html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Йога-кэмп в Дахабе с Ильёй Бариновым | 11-21 ноября 2026</title>
-  <meta name="description" content="11 дней перезагрузки в Дахабе: утренняя йога, каньон, темаскаль-баня, море и горы Синая. 11–21 ноября 2026 с Ильёй Бариновым.">
-  <meta name="theme-color" content="#0f172a">
-
+  <meta name="description" content="11 дней у Красного моря. Утренняя йога на рассвете, баня-темаскаль в красных скалах Синая, медитации и перезагрузка. Маленькая группа до 15 человек.">
+  <meta name="theme-color" content="#0b6d73">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
-  <meta property="og:title" content="Йога-кэмп в Дахабе с Ильёй Бариновым | 11-21 ноября 2026">
-  <meta property="og:description" content="11 дней полной перезагрузки на Красном море. Утренняя йога, каньоны, темаскаль-баня и фридайвинг. Без городского шума и дедлайнов.">
-  <meta property="og:url" content="https://utromaya-code.github.io/qigong-retreat-landing/dahab-yoga-camp.html">
-  <meta property="og:image" content="https://utromaya-code.github.io/qigong-retreat-landing/assets/images/photo-kite-lagoon.jpg">
+  <meta property="og:title" content="Йога-кэмп в Дахабе с Ильёй Бариновым | 11–21 ноября 2026">
+  <meta property="og:description" content="11 дней у Красного моря. Утренняя йога на рассвете, баня-темаскаль в красных скалах Синая, медитации и перезагрузка. Маленькая группа до 15 человек.">
+  <meta property="og:url" content="https://utromaya-code.github.io/qigong-retreat-landing/dahab-yoga-camp-new.html">
+  <meta property="og:image" content="https://utromaya-code.github.io/qigong-retreat-landing/assets/images/dahab-camp/hero-dahab-sea.jpg">
+  <meta property="og:image:alt" content="Йога-кэмп в Дахабе — Красное море, рассвет, горы Синая">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
   <script type="application/ld+json">
@@ -51,847 +53,694 @@
   </script>
 
   <link rel="icon" type="image/svg+xml" href="assets/images/logo-barinov.svg">
-  <link rel="preload" href="assets/images/photo-kite-lagoon.jpg" as="image">
+  <link rel="preload" href="assets/images/dahab-camp/hero-dahab-sea.jpg" as="image">
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700&f[]=satoshi@400,500,700,800&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700&amp;f[]=satoshi@400,500,700,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dahab-yoga-camp.css?v=20260514g">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Satoshi', 'system-ui', 'sans-serif'],
-            display: ['Zodiak', 'Georgia', 'serif'],
-          },
-          colors: {
-            brand: {
-              50: '#fffbeb',
-              500: '#f59e0b',
-              600: '#d97706',
-            },
-          },
-        },
-      },
-    };
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    .faq-panel { transition: max-height 0.35s ease, opacity 0.3s ease; }
-    .faq-chevron { transition: transform 0.3s ease; }
-    .faq-item.is-open .faq-chevron { transform: rotate(180deg); }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .faq-panel { transition: none; }
-    }
-  </style>
-  <!-- Underwater atmosphere -->
-  <link rel="stylesheet" href="dahab-underwater.css">
+    <style>
+      /* Hotel gallery */
+      .hotel-layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-10); align-items: start; }
+      @media (max-width: 768px) { .hotel-layout { grid-template-columns: 1fr; } }
+      .hotel-gallery { display: flex; flex-direction: column; gap: 8px; }
+      .hotel-img-main { width: 100%; height: 280px; object-fit: cover; border-radius: 10px; }
+      .hotel-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .hotel-img-grid img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; }
+      .hotel-features { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: var(--space-4) 0 var(--space-6); padding: 0; }
+      .hotel-features li { padding: 5px 14px; background: rgba(0,196,180,0.1); border: 1px solid rgba(0,196,180,0.25); border-radius: 999px; font-size: 0.85rem; font-weight: 600; color: var(--teal, #01696f); }
+      @media (prefers-color-scheme: dark) {
+        .hotel-features li { background: rgba(79,152,163,0.15); border-color: rgba(79,152,163,0.3); color: #4f98a3; }
+      }
+      /* Program tabs */
+      .program-tabs { display:flex; gap:8px; margin-bottom:var(--space-8,2rem); flex-wrap:wrap; }
+      .prog-tab { padding:10px 24px; border-radius:999px; border:2px solid var(--teal,#01696f); background:transparent; color:var(--teal,#01696f); font-size:.95rem; font-weight:600; cursor:pointer; transition:background .2s,color .2s; }
+      .prog-tab--active, .prog-tab:hover { background:var(--teal,#01696f); color:#fff; }
+      [role="tabpanel"][hidden] { display:none; }
+      /* FAQ accordion arrow */
+      .faq-list details summary { list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+      .faq-list details summary::-webkit-details-marker { display:none; }
+      .faq-list details summary::after { content:"↓"; font-size:1.1em; transition:transform .25s; flex-shrink:0; }
+      .faq-list details[open] summary::after { transform:rotate(180deg); }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
-<body class="font-sans text-slate-800 bg-gray-50 antialiased">
+<body>
+  <a class="skip-link" href="#main-content">Перейти к содержанию</a>
 
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:rounded-lg focus:shadow-lg">Перейти к содержанию</a>
-
-  <!-- HEADER -->
-  <header id="header" class="fixed top-0 inset-x-0 z-50 transition-all duration-500 bg-transparent border-b border-transparent">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 lg:h-[72px]">
-      <a href="#hero" class="flex items-center gap-2.5 text-white font-display font-bold text-lg" aria-label="К началу страницы">
-        <img src="assets/images/logo-barinov.svg" alt="" width="36" height="36" class="brightness-0 invert" decoding="async">
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="К началу страницы">
+        <img src="assets/images/logo-barinov.svg" alt="" width="36" height="36" aria-hidden="true" decoding="async">
         <span>Yoga Dahab</span>
       </a>
 
-      <button type="button" id="nav-toggle" class="lg:hidden relative z-50 w-10 h-10 flex flex-col justify-center items-center gap-1.5 text-white" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
-        <span class="nav-bar block w-6 h-0.5 bg-current transition-all"></span>
-        <span class="nav-bar block w-6 h-0.5 bg-current transition-all"></span>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
       </button>
 
-      <nav id="site-nav" class="fixed lg:static inset-0 lg:inset-auto bg-slate-900/98 lg:bg-transparent flex flex-col lg:flex-row items-center justify-center lg:justify-center gap-1 lg:gap-1 px-6 pt-24 pb-8 lg:p-0 opacity-0 invisible lg:opacity-100 lg:visible pointer-events-none lg:pointer-events-auto transition-all duration-300" aria-label="Основная навигация">
-        <a href="#audience" class="nav-link w-full lg:w-auto text-center px-4 py-3 lg:py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 text-sm font-semibold">Для кого</a>
-        <a href="#about" class="nav-link w-full lg:w-auto text-center px-4 py-3 lg:py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 text-sm font-semibold">О путешествии</a>
-        <a href="#program" class="nav-link w-full lg:w-auto text-center px-4 py-3 lg:py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 text-sm font-semibold">Программа</a>
-        <a href="#included" class="nav-link w-full lg:w-auto text-center px-4 py-3 lg:py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 text-sm font-semibold">Включено</a>
-        <a href="#hotel" class="nav-link w-full lg:w-auto text-center px-4 py-3 lg:py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 text-sm font-semibold">Отель</a>
-        <a href="#team" class="nav-link w-full lg:w-auto text-center px-4 py-3 lg:py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 text-sm font-semibold">Команда</a>
-        <a href="#price" class="nav-link w-full lg:w-auto text-center px-4 py-3 lg:py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 text-sm font-semibold">Стоимость</a>
-        <a href="#faq" class="nav-link w-full lg:w-auto text-center px-4 py-3 lg:py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 text-sm font-semibold">FAQ</a>
-        <a href="#request" class="nav-link w-full lg:w-auto text-center px-4 py-3 lg:py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 text-sm font-semibold">Заявка</a>
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+        <a href="#about" data-nav-section="about">О путешествии</a>
+        <a href="#program" data-nav-section="program">Программа</a>
+        <a href="#mountains" data-nav-section="mountains">Горы</a>
+        <a href="#included" data-nav-section="included">Включено</a>
+        <a href="#hotel" data-nav-section="hotel">Отель</a>
+        <a href="#team" data-nav-section="team">Команда</a>
+        <a href="#price" data-nav-section="price">Стоимость</a>
+        <a href="#faq" data-nav-section="faq">FAQ</a>
+        <a href="#request" data-nav-section="request">Заявка</a>
       </nav>
 
-      <a href="#request" class="hidden lg:inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-sm transition-colors shadow-lg shadow-amber-500/25">Записаться</a>
+      <a class="btn btn-small btn-primary header-cta" href="#request">Записаться</a>
     </div>
   </header>
 
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
   <main id="main-content">
-
-    <!-- HERO -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900 text-white">
-      <div class="absolute inset-0" aria-hidden="true">
-        <img src="assets/images/photo-kite-lagoon.jpg" alt="" class="w-full h-full object-cover opacity-40" width="1920" height="1080" fetchpriority="high">
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/30"></div>
-      </div>
-
-      <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-28 lg:py-32 text-center">
-        <span class="inline-block bg-amber-500/20 text-amber-300 text-xs sm:text-sm font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-6 backdrop-blur-sm border border-amber-400/20">
-          Египет, Дахаб · 11–21 ноября 2026
-        </span>
-
-        <h1 class="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight max-w-4xl mx-auto">
-          Йога-кэмп<br class="hidden sm:inline"> с Ильёй Бариновым
-        </h1>
-
-        <p class="mt-5 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          Одиннадцать дней у Красного моря. Море +26°С, утренняя йога на рассвете, баня-темаскаль в красных скалах Синая — и ни одного будильника с работы.
-        </p>
-
-        <div class="mt-10" aria-label="До начала кэмпа">
-          <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-400 mb-3 font-semibold">До старта перезагрузки осталось</p>
-          <div id="countdown" class="flex justify-center gap-3 sm:gap-4">
-            <div class="bg-white/10 backdrop-blur-md rounded-xl px-4 py-3 min-w-[72px] border border-white/10">
-              <span id="cd-days" class="block text-2xl sm:text-3xl font-extrabold text-amber-400 tabular-nums">00</span>
-              <span class="text-[10px] text-slate-400 uppercase tracking-wider">дней</span>
-            </div>
-            <div class="bg-white/10 backdrop-blur-md rounded-xl px-4 py-3 min-w-[72px] border border-white/10">
-              <span id="cd-hours" class="block text-2xl sm:text-3xl font-extrabold text-white tabular-nums">00</span>
-              <span class="text-[10px] text-slate-400 uppercase tracking-wider">часов</span>
-            </div>
-            <div class="bg-white/10 backdrop-blur-md rounded-xl px-4 py-3 min-w-[72px] border border-white/10">
-              <span id="cd-mins" class="block text-2xl sm:text-3xl font-extrabold text-white tabular-nums">00</span>
-              <span class="text-[10px] text-slate-400 uppercase tracking-wider">минут</span>
-            </div>
+    <section class="hero" id="hero">
+      <picture class="hero-image" aria-hidden="true">
+        <img src="assets/images/photo-kite-lagoon.jpg" alt="Бирюзовое море Дахаб, Красное море" width="1290" height="860" style="object-position: center 40%;">
+      </picture>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Египет, Дахаб</p>
+          <h1>Йога-кэмп с Ильёй Бариновым</h1>
+          <p class="hero-dates">11-21 ноября 2026</p>
+          <p class="hero-lead">Одиннадцать дней у Красного моря. Море +26°С, утренняя йога на рассвете, баня-темаскаль в красных скалах Синая. Первое погружение с фридайвером, переход по каньону, лагуна Абу-Галум — и ни одного будильника.</p>
+          <div class="hero-countdown" id="hero-countdown" aria-label="До начала кэмпа" aria-live="polite">
+            <span class="countdown-item"><span id="cd-days">—</span><small id="cd-days-label">дней</small></span>
+            <span class="countdown-sep">:</span>
+            <span class="countdown-item"><span id="cd-hours">—</span><small id="cd-hours-label">часов</small></span>
+            <span class="countdown-sep">:</span>
+            <span class="countdown-item"><span id="cd-mins">—</span><small id="cd-mins-label">минут</small></span>
+          </div>
+          <p id="cd-ended" style="display:none;font-size:1.1em;font-weight:600;color:var(--teal,#01696f);">Кэмп уже начался!</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#request">Оставить заявку</a>
+            <a class="btn btn-secondary" href="#program">Смотреть программу</a>
           </div>
         </div>
 
-        <div class="mt-10 flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 max-w-md sm:max-w-none mx-auto">
-          <a href="#request" class="inline-flex justify-center items-center px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-base shadow-xl shadow-amber-500/30 transition-colors">
-            Забронировать место
-          </a>
-          <a href="#program" class="inline-flex justify-center items-center px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/20 backdrop-blur-sm transition-colors">
-            Смотреть программу
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- AUDIENCE -->
-    <section id="audience" class="py-20 lg:py-28 bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="max-w-2xl mb-12 lg:mb-16">
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Для кого</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">Кому подойдёт этот кэмп</h2>
-          <p class="mt-4 text-slate-600 text-lg leading-relaxed">Три типичных истории — возможно, одна из них ваша. Опыт в йоге не обязателен, важнее желание выдохнуть и быть в теле.</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-          <article class="p-8 rounded-2xl bg-gray-50 border border-slate-100 hover:border-amber-200 hover:shadow-lg transition-all">
-            <span class="text-3xl font-extrabold text-amber-500/40">01</span>
-            <h3 class="mt-4 font-bold text-xl text-slate-900">Выгорели на работе</h3>
-            <p class="mt-3 text-slate-600 leading-relaxed">Нужен не «ещё один ретрит с расписанием по минутам», а место, где можно отключить уведомления, поспать, подвигаться мягко и вернуться с ясной головой.</p>
-          </article>
-          <article class="p-8 rounded-2xl bg-gray-50 border border-slate-100 hover:border-amber-200 hover:shadow-lg transition-all">
-            <span class="text-3xl font-extrabold text-amber-500/40">02</span>
-            <h3 class="mt-4 font-bold text-xl text-slate-900">Практикуете на любом уровне</h3>
-            <p class="mt-3 text-slate-600 leading-relaxed">Новичок или давний практик — занятия с Ильёй адаптируются под группу. Важно лишь заранее сказать о травмах и ограничениях.</p>
-          </article>
-          <article class="p-8 rounded-2xl bg-gray-50 border border-slate-100 hover:border-amber-200 hover:shadow-lg transition-all">
-            <span class="text-3xl font-extrabold text-amber-500/40">03</span>
-            <h3 class="mt-4 font-bold text-xl text-slate-900">Едете один или одна</h3>
-            <p class="mt-3 text-slate-600 leading-relaxed">Многие приезжают без пары и без знакомых. Группа до 15 человек, общие практики и выезды — быстро появляется ощущение «своих».</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="py-20 lg:py-28 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="hero-panel reveal" aria-label="Ключевые условия">
           <div>
-            <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Зачем сюда ехать</p>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">Море, горы и тишина — в одном месте</h2>
-            <p class="mt-5 text-slate-600 leading-relaxed">Дахаб — один из немногих уголков планеты, где тёплое бирюзовое море в пяти минутах ходьбы от отеля, а за спиной стоят красные горы Синая. Здесь нет шума курортов, нет суеты и спешки. Только ритм, который ты выбираешь сам.</p>
-            <p class="mt-4 text-slate-600 leading-relaxed">Мы собираем маленькую группу — максимум 15 человек — чтобы было пространство для живого контакта с практикой и пейзажем. Утром йога, днём выезды или свободное море, вечером — медитации и тишина.</p>
+            <span>11 дней</span>
+            <strong>Дахаб и Синай</strong>
           </div>
-          <figure class="rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]">
-            <img src="assets/images/dahab-camp/girl-sea-morning.jpg" alt="Утро у Красного моря в Дахабе" class="w-full h-full object-cover object-[center_22%]" loading="lazy" decoding="async" width="800" height="1066">
-          </figure>
-        </div>
+          <div>
+            <span>от</span>
+            <strong>99 000 ₽</strong>
+          </div>
+          <div>
+            <span>первые</span>
+            <strong>5 мест</strong>
+          </div>
 
-        <div class="grid sm:grid-cols-3 gap-4 mt-14" aria-label="Атмосфера Дахаба">
-          <figure class="rounded-xl overflow-hidden aspect-[4/5] shadow-md">
-            <img src="assets/images/dahab-camp/bougainvillea-terrace.jpg" alt="Бугенвиллея — терраса у практики в Дахабе" class="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="1066">
-          </figure>
-          <figure class="rounded-xl overflow-hidden aspect-[4/5] shadow-md">
-            <img src="assets/images/dahab-camp/sea-view-dog.jpg" alt="Вид на Красное море из кафе в Дахабе" class="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="1066">
-          </figure>
-          <figure class="rounded-xl overflow-hidden aspect-[4/5] shadow-md">
-            <img src="assets/images/dahab-camp/rooftop-dahab-sea.jpg" alt="Вид на море с крыши в Дахабе" class="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="1066">
-          </figure>
         </div>
-
-        <blockquote class="mt-14 pl-6 border-l-4 border-amber-500 bg-white rounded-r-2xl py-8 pr-8 shadow-sm">
-          <p class="font-display text-xl sm:text-2xl text-slate-800 italic leading-relaxed">«В Дахабе время течёт иначе. Утром — практика, потом море, потом горы. К концу недели понимаешь, что так и должно быть.»</p>
-          <cite class="block mt-4 text-sm text-slate-500 not-italic">— участница прошлого кэмпа</cite>
-        </blockquote>
       </div>
     </section>
 
-    <!-- PROGRAM (tabs) -->
-    <section id="program" class="py-20 lg:py-28 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="max-w-2xl mb-10 lg:mb-12">
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Программа</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">11 дней в Дахабе</h2>
-          <p class="mt-4 text-slate-600 text-lg leading-relaxed">Порядок дней подстраивается под ветер, приливы и ритм группы. Но «скелет» остаётся: йога, медитации, море, каньон, Абу-Галум, вечера без перегруза.</p>
+    <section class="section intro-section" id="about">
+      <div class="container intro-grid">
+        <div class="intro-copy reveal">
+          <p class="eyebrow">Ритм путешествия</p>
+          <h2>Одиннадцать дней вне ритма городской жизни</h2>
+          <p>Ноябрьский Дахаб — не сезон туристических толп. Море +26°С, солнце мягкое, ветер с Саудовской Аравии приносит запах пустыни. Утро начинается с йоги на рассвете, когда небо над Акабским заливом только розовеет. Потом — завтрак, море и время, которое по-настоящему ваше: никаких дедлайнов, никаких уведомлений.</p>
+          <p>Каньон Колорадо в 20 минутах от города: красные стены известняка и баня-темаскаль прямо в скалах. Лагуна Абу-Галум — заповедник, куда добираются только вдоль берега. Blue Hole — легендарная точка фридайвинга — видна с берега. Горы Синая за городом: тёплый гранит, виды на три страны с вершины.</p>
         </div>
-
-        <div class="inline-flex flex-wrap gap-2 p-1.5 rounded-2xl bg-white border border-slate-200 shadow-sm mb-10" role="tablist" aria-label="Разделы программы">
-          <button type="button" id="tab-btn-route" role="tab" aria-selected="true" aria-controls="tab-panel-route" data-program-tab="route" class="program-tab px-5 py-2.5 rounded-xl text-sm font-bold transition-all bg-slate-900 text-white shadow-md">
-            Главный маршрут
-          </button>
-          <button type="button" id="tab-btn-practices" role="tab" aria-selected="false" aria-controls="tab-panel-practices" data-program-tab="practices" class="program-tab px-5 py-2.5 rounded-xl text-sm font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-50">
-            Сетка практик Ильи
-          </button>
+        <div class="intro-media reveal">
+          <img src="assets/images/dahab-camp/intro-dahab.jpeg" alt="Дахаб — бирюзовая лагуна" loading="lazy" decoding="async" width="1050" height="1400">
         </div>
+      </div>
+    </section>
 
-        <!-- Tab 1: Timeline -->
-        <div id="tab-panel-route" role="tabpanel" aria-labelledby="tab-btn-route" class="program-panel">
-          <div class="relative pl-8 sm:pl-10 border-l-2 border-amber-200 space-y-10">
-            <article class="relative">
-              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">11 ноября</p>
-              <h3 class="mt-1 font-bold text-xl text-slate-900">Приезд и заселение</h3>
-              <p class="mt-2 text-slate-600 leading-relaxed">Встреча в Шарм-Эль-Шейхе, трансфер в Дахаб, заселение, знакомство группы и мягкая вечерняя практика.</p>
-            </article>
-            <article class="relative">
-              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">12–14 ноября</p>
-              <h3 class="mt-1 font-bold text-xl text-slate-900">Йога, медитации, адаптация</h3>
-              <p class="mt-2 text-slate-600 leading-relaxed">Утренние и вечерние занятия, короткие медитативные блоки, море и прогулки по Дахабу — мягко входим в климат и ритм группы.</p>
-            </article>
-            <article class="relative">
-              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">Один из дней</p>
-              <h3 class="mt-1 font-bold text-xl text-slate-900">Каньон и темаскаль-баня</h3>
-              <p class="mt-2 text-slate-600 leading-relaxed">Выезд в каньон, прогулка по красным скалам Синая и паровая церемония темаскаль прямо в каньоне. Один из самых сильных дней кэмпа.</p>
-              <figure class="mt-4 rounded-xl overflow-hidden shadow-md aspect-[16/9]">
-                <img src="assets/images/dahab-camp/canyon-sinai.jpg" alt="Каньон в Синае" class="w-full h-full object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" width="960" height="540"
-                  onerror="this.closest('figure').style.display='none'">
-              </figure>
-            </article>
-            <article class="relative">
-              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">Один из дней</p>
-              <h3 class="mt-1 font-bold text-xl text-slate-900">Скалы и горный Синай</h3>
-              <p class="mt-2 text-slate-600 leading-relaxed">По желанию группы — пробное скалолазание или однодневная программа с Дахабским горным клубом. Детали и стоимость согласуем заранее.</p>
-              <p class="mt-2"><a href="https://mountain.dahab.pro/taxonomy/term/43" target="_blank" rel="noopener noreferrer" class="text-amber-600 font-semibold hover:text-amber-700 underline underline-offset-2">Программы туров на скалах →</a></p>
-            </article>
-            <article class="relative">
-              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">Один из дней</p>
-              <h3 class="mt-1 font-bold text-xl text-slate-900">Абу-Галум и Голубая лагуна</h3>
-              <p class="mt-2 text-slate-600 leading-relaxed">Поездка к заповедному побережью, бирюзовая вода, спокойный день для купания и созерцания.</p>
-            </article>
-            <article class="relative">
-              <span class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(2.5rem+5px)] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-100" aria-hidden="true"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-amber-600">21 ноября</p>
-              <h3 class="mt-1 font-bold text-xl text-slate-900">Завершение и выезд</h3>
-              <p class="mt-2 text-slate-600 leading-relaxed">Финальная практика, сборы, трансфер в аэропорт Шарм-Эль-Шейха.</p>
-            </article>
+    <section class="section section-water">
+      <div class="container rhythm-grid">
+        <article class="rhythm-item reveal">
+          <span>01</span>
+          <h3>Утренние практики</h3>
+          <p>Йога на пробуждение тела, короткие сидячие и стоячие медитации, дыхание и мягкая суставная разминка — чтобы войти в день без спешки и с ясной опорой.</p>
+        </article>
+        <article class="rhythm-item reveal">
+          <span>02</span>
+          <h3>Дневные выезды</h3>
+          <p>Каньон и красные скалы Синая с темаскаль-баней, день в Абу-Галуме и Голубой лагуне, свободное море и снорклинг. По желанию — фридайвинг с Анастасией или выход к скалам с горным клубом (отдельно по согласованию).</p>
+        </article>
+        <article class="rhythm-item reveal">
+          <span>03</span>
+          <h3>Вечернее восстановление</h3>
+          <p>Медитативные практики на снятие напряжения, мягкая растяжка и дыхание перед сном — чтобы нервная система отдыхала вместе с телом.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE / STATS -->
+    <section class="section experience-section" id="experience" aria-label="Опыт участников">
+      <div class="container">
+        <div class="experience-stats reveal">
+          <div class="exp-stat">
+            <span class="exp-num">+26°C</span>
+            <p>море в ноябре</p>
+          </div>
+          <div class="exp-stat">
+            <span class="exp-num">11</span>
+            <p>дней полной перезагрузки</p>
+          </div>
+          <div class="exp-stat">
+            <span class="exp-num">3</span>
+            <p>активности на выбор</p>
+          </div>
+          <div class="exp-stat">
+            <span class="exp-num">15</span>
+            <p>максимум участников</p>
           </div>
         </div>
 
-        <!-- Tab 2: Practices -->
-        <div id="tab-panel-practices" role="tabpanel" aria-labelledby="tab-btn-practices" class="program-panel hidden">
-          <p class="text-slate-600 mb-8 max-w-2xl leading-relaxed">Три ритма — без расписания по минутам. Утром и вечером — практики с Ильёй, днём — море, выезды или тишина по желанию.</p>
-
-          <div class="grid md:grid-cols-2 gap-6">
-            <article class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
-              <span class="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 px-3 py-1 rounded-full bg-amber-50">Утро</span>
-              <h3 class="mt-4 font-bold text-xl text-slate-900">Йога и медитация</h3>
-              <p class="mt-3 text-slate-600 text-sm leading-relaxed">Практика на пробуждение тела — йога для спины, суставов и баланса, короткие медитативные паузы, дыхание и мягкая суставная разминка. Без спешки, без целеполагания. Просто войти в день с ясной головой.</p>
-              <p class="mt-3 text-slate-600 text-sm leading-relaxed">Практики ведёт Илья Баринов — они подходят как новичкам, так и тем, кто практикует давно.</p>
-            </article>
-            <article class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
-              <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-600 px-3 py-1 rounded-full bg-indigo-50">Вечер</span>
-              <h3 class="mt-4 font-bold text-xl text-slate-900">Восстановление</h3>
-              <p class="mt-3 text-slate-600 text-sm leading-relaxed">Медитативные практики на снятие напряжения, мягкая растяжка и дыхание перед сном. Нервная система отдыхает вместе с телом. Тишина вечеров Дахаба — отдельная ценность этого места.</p>
-            </article>
-          </div>
-
-          <article class="mt-6 p-8 rounded-2xl bg-white border border-dashed border-slate-200">
-            <span class="inline-block text-xs font-bold uppercase tracking-widest text-slate-500 px-3 py-1 rounded-full bg-slate-100">День</span>
-            <h3 class="mt-4 font-bold text-lg text-slate-900">Выезды и море</h3>
-            <p class="mt-2 text-slate-600 text-sm leading-relaxed">Каньон с темаскаль-баней, заповедный Абу-Галум и Голубая лагуна, скалы Синая с горным клубом — для тех, кто хочет чуть больше адреналина. Или просто свободное море, снорклинг и шезлонг. Никто не обязан никуда ехать.</p>
-          </article>
-
-          <div class="mt-8 grid lg:grid-cols-[1fr_280px] gap-8 items-start p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
-            <div>
-              <h3 class="font-bold text-xl text-slate-900">Практики с Ильёй</h3>
-              <ul class="mt-4 space-y-2.5 text-slate-600 text-sm leading-relaxed">
-                <li class="flex gap-2"><span class="text-amber-500">—</span> йога для спины, суставов и баланса;</li>
-                <li class="flex gap-2"><span class="text-amber-500">—</span> медитации: работа с вниманием и опорой;</li>
-                <li class="flex gap-2"><span class="text-amber-500">—</span> дыхательные техники и прана-вьяяма;</li>
-                <li class="flex gap-2"><span class="text-amber-500">—</span> мягкая силовая работа и восстановление;</li>
-                <li class="flex gap-2"><span class="text-amber-500">—</span> глубокое расслабление и осознанность;</li>
-                <li class="flex gap-2"><span class="text-amber-500">—</span> элементы цигун как поддержка тела.</li>
-              </ul>
+        <div class="experience-cards reveal">
+          <div class="exp-card exp-card--yoga">
+            <div class="exp-card-inner">
+              <span class="exp-tag">Каждое утро</span>
+              <h3>Йога на рассвете</h3>
+              <p>Открытая площадка с видом на Акабский залив. Илья ведёт практику под звук волн — от мягкой тянучки до динамичного виньяса.</p>
             </div>
-            <figure class="hidden lg:block overflow-hidden rounded-2xl aspect-[4/5]">
-              <img src="assets/images/dahab-camp/group-sinai-mountains.jpg" alt="Группа кэмпа на горах Синая" class="w-full h-full object-cover object-[center_22%] transition duration-500 hover:scale-105" loading="lazy" decoding="async" width="1080" height="1350">
-            </figure>
+          </div>
+          <div class="exp-card exp-card--sea">
+            <div class="exp-card-inner">
+              <span class="exp-tag">Каждый день</span>
+              <h3>Море в пяти минутах</h3>
+              <p>Прозрачная вода, рифы с рыбами прямо у берега. Просто выйти и плыть — без расписания и без групп.</p>
+            </div>
+          </div>
+          <div class="exp-card exp-card--desert">
+            <div class="exp-card-inner">
+              <span class="exp-tag">Однажды</span>
+              <h3>Баня в красных скалах</h3>
+              <p>Темаскаль — традиционная церемония в каньоне Колорадо. Красные стены Синая, пар, тишина — и ощущение, что перезагрузился по-настоящему.</p>
+            </div>
+          </div>
+          <div class="exp-card exp-card--night">
+            <div class="exp-card-inner">
+              <span class="exp-tag">Вечером</span>
+              <h3>Медитации и закаты</h3>
+              <p>Групповые и личные практики. Закаты над заливом. Звёзды без засветки города — небо, которое ты, возможно, не видел никогда.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- QUOTE -->
-    <section class="py-16 lg:py-20 bg-slate-900 text-white" aria-label="Цитата">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <span class="font-display text-6xl text-amber-500/30 leading-none" aria-hidden="true">"</span>
-        <p class="font-display text-xl sm:text-2xl lg:text-3xl italic leading-relaxed text-slate-100">Дахаб — одно из немногих мест, где можно одновременно нырнуть в 30-метровую глубину и дойти до 2000-метровой вершины. Мы едем туда, чтобы напомнить телу и голове, что они умеют всё.</p>
-        <cite class="block mt-6 text-sm font-bold uppercase tracking-widest text-amber-400 not-italic">— Илья Баринов</cite>
+    <section class="section" id="program">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Программа</p>
+          <h2>Дахаб · 11–21 ноября</h2>
+          <p>Ритм поездки уже собран по дням: практика чередуется со свободным временем, фридайвингом, каньоном и выездом в лагуну. Это даёт более ясное ощущение путешествия ещё до бронирования.</p>
+        </div>
+
+        <div class="program-tabs reveal" role="tablist" aria-label="Программа">
+          <button class="prog-tab prog-tab--active" role="tab" aria-selected="true" aria-controls="tab-route" id="btn-route">Маршрут по дням</button>
+          <button class="prog-tab" role="tab" aria-selected="false" aria-controls="tab-practices" id="btn-practices">Сетка практик Ильи</button>
+        </div>
+
+        <div class="program-layout">
+          <div id="tab-route" role="tabpanel" aria-labelledby="btn-route">
+          <div class="timeline reveal">
+            <article>
+              <span>11–12 ноября</span>
+              <h3>Практика и свободное время</h3>
+              <p>Мягкий вход в ритм кэмпа: утренние практики, адаптация к морю и климату, отдых, прогулки по Дахабу и время для себя днём.</p>
+            </article>
+            <article>
+              <span>13–15 ноября</span>
+              <h3>Практика и фридайвинг</h3>
+              <p>Утром — йога и дыхательные техники, днём — знакомство с фридайвингом и Красным морем в безопасном, спокойном формате с инструктором.</p>
+            </article>
+            <article>
+              <span>16–17 ноября</span>
+              <h3>Практика и свободное время</h3>
+              <p>Возвращаемся к более медленному ритму: утренние занятия, море, отдых, восстановление, тишина и пространство без спешки.</p>
+            </article>
+            <article>
+              <span>18–19 ноября</span>
+              <h3>Каньон и темаскаль</h3>
+              <p>Выезд в каньон Колорадо: красные скалы, переход по ущелью и баня-темаскаль как сильная точка всей программы — для перезагрузки тела и головы.</p>
+            </article>
+            <article>
+              <span>20 ноября</span>
+              <h3>Утренняя практика и выезд в лагуну</h3>
+              <p>Сначала — утренняя практика, затем поездка в лагуну: прозрачная вода, спокойный день у моря, купание, отдых и красивое завершение активной части кэмпа.</p>
+            </article>
+            <article>
+              <span>21 ноября</span>
+              <h3>Завершение и выезд</h3>
+              <p>Финальное утро в Дахабе, сборы и трансфер. День для мягкого завершения поездки и возвращения домой в собранном состоянии.</p>
+            </article>
+          </div>
+
+          </div><!-- /tab-route -->
+          <div id="tab-practices" role="tabpanel" aria-labelledby="btn-practices" hidden>
+          <aside class="program-aside reveal" style="margin:0 auto;max-width:600px;">
+            <img src="assets/images/dahab-camp/telegraph-5.jpg" alt="Пейзажи Синая и практики" loading="lazy" decoding="async" width="768" height="1024">
+            <div class="practices-block">
+              <h3>Программа практик</h3>
+
+              <div class="practice-day">
+                <div class="practice-day-label">День приезда</div>
+                <div class="practice-session">
+                  <span class="practice-time">Вечер</span>
+                  <p>Лёгкая практика асан для восстановления после дороги, пранаяма, медитация</p>
+                </div>
+              </div>
+
+              <div class="practice-day">
+                <div class="practice-day-label">Свободные дни</div>
+                <div class="practice-session">
+                  <span class="practice-time">Утро</span>
+                  <p>Гимнастика для глаз, прана-вьяяма, Сурья Намаскар (авторский вариант)</p>
+                </div>
+                <div class="practice-session">
+                  <span class="practice-time">Вечер</span>
+                  <p>Пранаяма для восстановления нервной системы, медитация</p>
+                </div>
+              </div>
+
+              <div class="practice-day">
+                <div class="practice-day-label">Дни фридайвинга</div>
+                <div class="practice-session">
+                  <span class="practice-time">Утро</span>
+                  <p>Прана-вьяямы, цигун</p>
+                </div>
+                <div class="practice-session">
+                  <span class="practice-time">Вечер</span>
+                  <p>Медитация</p>
+                </div>
+              </div>
+
+              <div class="practice-day">
+                <div class="practice-day-label">Дни выездов</div>
+                <div class="practice-session">
+                  <span class="practice-time">Утро</span>
+                  <p>Гимнастика для глаз, прана-вьяяма, Сурья Намаскар или хатха-йога</p>
+                </div>
+                <div class="practice-session">
+                  <span class="practice-time">Вечер</span>
+                  <p>Практика в зависимости от программы дня</p>
+                </div>
+              </div>
+            </div>
+          </aside>
+          </div><!-- /tab-practices -->
+        </div>
       </div>
     </section>
 
-    <!-- INCLUDED -->
-    <section id="included" class="py-20 lg:py-28 bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="max-w-2xl mb-12">
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Условия</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">Что входит в стоимость</h2>
+    <section class="section section-sand" id="included">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Условия</p>
+          <h2>Что входит в стоимость</h2>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          <article class="p-6 rounded-2xl bg-gray-50 border border-slate-100">
-            <h3 class="font-bold text-lg text-slate-900">Проживание</h3>
-            <p class="mt-2 text-slate-600 text-sm leading-relaxed">10 ночей в El Salam Hotel в Дахабе. Завтраки включены.</p>
+
+        <div class="included-grid">
+          <article class="included-card reveal">
+            <h3>🏨 Проживание</h3>
+            <p>10 ночей в El Salam Hotel — прямо у воды. Завтраки включены, бассейн, кондиционер.</p>
           </article>
-          <article class="p-6 rounded-2xl bg-gray-50 border border-slate-100">
-            <h3 class="font-bold text-lg text-slate-900">Трансфер</h3>
-            <p class="mt-2 text-slate-600 text-sm leading-relaxed">Групповой трансфер из аэропорта Шарм-Эль-Шейха в Дахаб и обратно.</p>
+          <article class="included-card reveal">
+            <h3>🚐 Трансфер</h3>
+            <p>Групповой трансфер из Шарм-Эль-Шейха в Дахаб и обратно. Встречаем в аэропорту.</p>
           </article>
-          <article class="p-6 rounded-2xl bg-gray-50 border border-slate-100">
-            <h3 class="font-bold text-lg text-slate-900">Практики</h3>
-            <p class="mt-2 text-slate-600 text-sm leading-relaxed">Утренние и вечерние занятия с Ильёй Бариновым: йога, дыхание и медитативные блоки на протяжении путешествия.</p>
+          <article class="included-card reveal">
+            <h3>Практики</h3>
+            <p>Утренние и вечерние занятия с Ильёй: йога, дыхание, цигун и медитативные блоки. Каждый день — своя практика, без повторов.</p>
           </article>
-          <article class="p-6 rounded-2xl bg-gray-50 border border-slate-100">
-            <h3 class="font-bold text-lg text-slate-900">Каньон</h3>
-            <p class="mt-2 text-slate-600 text-sm leading-relaxed">Поездка в каньон и темаскаль-баня в каньоне.</p>
+          <article class="included-card reveal">
+            <h3>Каньон</h3>
+            <p>Каньон Колорадо и баня-темаскаль в скалах — жар, тишина и красные стены вокруг. Многие говорят: это лучший день кэмпа.</p>
           </article>
-          <article class="p-6 rounded-2xl bg-gray-50 border border-slate-100">
-            <h3 class="font-bold text-lg text-slate-900">Абу-Галум</h3>
-            <p class="mt-2 text-slate-600 text-sm leading-relaxed">Выезд к Абу-Галуму и Голубой лагуне для купания и спокойного отдыха.</p>
+          <article class="included-card reveal">
+            <h3>Абу-Галум</h3>
+            <p>Выезд к лагуне Абу-Галум — заповедник, куда нет дороги для машин: только берег, прозрачная вода и тишина.</p>
           </article>
-          <article class="p-6 rounded-2xl bg-gray-50 border border-slate-100">
-            <h3 class="font-bold text-lg text-slate-900">Сопровождение</h3>
-            <p class="mt-2 text-slate-600 text-sm leading-relaxed">Организация маршрута, помощь на месте и координация группы. Рекомендованные варианты перелёта пришлём в Telegram после бронирования.</p>
+          <article class="included-card reveal">
+            <h3>Сопровождение</h3>
+            <p>Организация маршрута, помощь на месте и координация группы. Рекомендованные варианты перелёта и стыковок пришлём в Telegram после бронирования места.</p>
           </article>
         </div>
-        <div class="mt-10 p-8 rounded-2xl bg-slate-50 border border-slate-200">
-          <h3 class="font-bold text-lg text-slate-900">Не включено</h3>
-          <ul class="mt-4 grid sm:grid-cols-2 gap-2 text-slate-600 text-sm">
-            <li>• перелёт до Шарм-Эль-Шейха;</li>
-            <li>• страховка;</li>
-            <li>• обеды и ужины;</li>
-            <li>• фридайвинг с инструктором;</li>
-            <li>• программы на скалах у горного клуба (по желанию, оплачивается отдельно);</li>
-            <li>• личные расходы.</li>
+
+        <div class="not-included reveal">
+          <h3>Не включено</h3>
+          <ul>
+            <li>перелёт до Шарм-Эль-Шейха;</li>
+            <li>страховка;</li>
+            <li>обеды и ужины;</li>
+            <li>фридайвинг с инструктором;</li>
+            <li>программы на скалах у горного клуба (по желанию, оплачивается отдельно);</li>
+            <li>личные расходы.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- HOTEL -->
-    <section id="hotel" class="py-20 lg:py-28 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <figure class="rounded-2xl overflow-hidden shadow-xl aspect-[4/5] order-2 lg:order-1">
-            <img src="assets/images/dahab-camp/rooftop-dahab-sea.jpg" alt="Вид на море с крыши El Salam Hotel" class="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="1066">
-          </figure>
-          <div class="order-1 lg:order-2">
-            <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Отель</p>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">El Salam Hotel</h2>
-            <p class="mt-5 text-slate-600 leading-relaxed">Отель прямо у моря, в районе Dahab Beach. Завтраки, Wi-Fi, бассейн, ресторан и бар. Тихое место без курортного шума.</p>
-            <p class="mt-4 text-slate-600 leading-relaxed">Финальный тип номера и детали размещения подтверждаем после формирования группы.</p>
-            <a href="https://www.booking.com/hotel/eg/el-salam-dahab1.html" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-amber-600 font-semibold hover:text-amber-700 underline underline-offset-2">Посмотреть отель на Booking →</a>
+    <section id="hotel" class="section">
+      <div class="container">
+        <div class="hotel-layout">
+          <div class="hotel-gallery reveal">
+            <img src="assets/images/hotel-pool.jpg" alt="Бассейн El Salam Hotel, Дахаб" loading="lazy" decoding="async" width="1280" height="853" class="hotel-img-main">
+            <div class="hotel-img-grid">
+              <img src="assets/images/hotel-room.jpg" alt="Номер в El Salam Hotel" loading="lazy" decoding="async" width="810" height="540">
+              <img src="assets/images/dahab-camp/telegraph-9.jpg" alt="Вид из отеля на море" loading="lazy" decoding="async" width="1077" height="808">
+            </div>
+          </div>
+          <div class="hotel-copy reveal">
+            <p class="eyebrow">Где живём</p>
+            <h2>Прямо у воды</h2>
+            <p>От ресепшена до моря — пятьдесят шагов. Отель стоит на берегу залива, из окон видно воду и пальмы. Завтраки включены, есть бассейн с шезлонгами — для тех дней, когда хочется просто лежать под небом и ни о чём не думать.</p>
+            <p>Вокруг — набережная Маасбат: кафе с видом на залив, свежая рыба прямо с лодки, дайв-центры и местные, которые помнят тебя по имени уже на второй день. Ноябрь в Дахабе — самое приятное время: нет летней жары, нет толп туристов.</p>
+            <ul class="hotel-features">
+              <li>Завтрак включён</li>
+              <li>Бассейн</li>
+              <li>Вид на море</li>
+              <li>50 м до воды</li>
+              <li>Wi-Fi</li>
+              <li>Ресторан на берегу</li>
+            </ul>
+            
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Фотогалерея отеля -->
-        <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-3">
-          <figure class="rounded-xl overflow-hidden aspect-[4/3] shadow-md group">
-            <img src="assets/images/dahab-camp/bougainvillea-terrace.jpg" alt="Терраса отеля" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="800" height="600">
-          </figure>
-          <figure class="rounded-xl overflow-hidden aspect-[4/3] shadow-md group">
-            <img src="assets/images/dahab-camp/sea-view-dog.jpg" alt="Вид на море из отеля" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="800" height="600">
-          </figure>
-          <figure class="rounded-xl overflow-hidden aspect-[4/3] shadow-md group col-span-2 sm:col-span-1">
-            <img src="assets/images/dahab-camp/rooftop-dahab-sea.jpg" alt="Крыша и море" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="800" height="600">
-          </figure>
+    <section class="section section-water" id="freediving">
+      <div class="container freedive-grid">
+        <div class="freedive-copy reveal">
+          <p class="eyebrow">Дополнительно</p>
+          <h2>Фридайвинг — первое погружение в невесомость</h2>
+          <p>Красное море у Дахаба — одно из лучших мест для первого погружения: температура +26°С, никаких волн. Анастасия ведёт занятия с 2015 года — безопасно, без спешки. Сначала дыхание на суше, потом — первое ощущение невесомости под водой. Многие говорят, что это меняет отношение к телу сильнее, чем месяц йоги.</p>
+          <p>Стоимость и расписание согласуются отдельно — чтобы не перегружать йога-блок и оставить время просто плавать в удовольствие.</p>
+        </div>
+        <div class="freedive-media reveal">
+          <img src="assets/images/dahab-camp/freedive-main.jpeg" alt="Красное море — фридайвинг в Дахабе" loading="lazy" decoding="async" width="960" height="1280">
         </div>
       </div>
     </section>
 
-    <!-- FREEDIVING -->
-    <section id="freediving" class="py-20 lg:py-28 bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Дополнительно</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">Фридайвинг с Анастасией Якименко</h2>
-          <p class="mt-5 text-slate-600 leading-relaxed">Для желающих — базовая программа по фридайвингу. Это отдельный блок с инструктором: безопасность, дыхание, расслабление в воде и первые погружения. Хорошо стыкуется с утренней йогой и вечерними медитациями.</p>
-          <p class="mt-4 text-slate-600 leading-relaxed">Стоимость и расписание фридайвинга уточняются отдельно.</p>
+    <section class="section section-sand" id="mountains">
+      <div class="container freedive-grid">
+        <div class="freedive-copy reveal">
+          <p class="eyebrow">Дополнительно</p>
+          <h2>Скалы Синая — между морем и пустыней</h2>
+          <p>Горы Синая начинаются прямо за Дахабом — двадцать минут езды. Тёплый красный гранит, широкие полки, виды на залив Акаба и Саудовскую Аравию. Дахабский горный клуб водит группы по Синаю много лет — знают каждый маршрут и умеют сделать так, чтобы было интересно и безопасно одновременно.</p>
+          <p>Для тех, кто никогда не держал страховку — пробный день на скалах с полным инструктажом. Для тех, кто уже в теме — насыщенные маршруты с техническими участками. Детали и стоимость согласуем до выезда — без сюрпризов.</p>
+          <a class="text-link" href="https://mountain.dahab.pro/taxonomy/term/43" target="_blank" rel="noopener noreferrer">Альпинизм и туры на скалах — сайт горного клуба</a>
         </div>
-        <figure class="rounded-2xl overflow-hidden shadow-xl aspect-[4/5]">
-          <img src="assets/images/dahab-camp/telegraph-4.jpg" alt="Фридайвинг в Красном море" class="w-full h-full object-cover object-center" loading="lazy" decoding="async" width="960" height="1280">
-        </figure>
-      </div>
-    </section>
-
-    <!-- MOUNTAINS -->
-    <section id="mountains" class="py-20 lg:py-28 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <figure class="rounded-2xl overflow-hidden shadow-xl aspect-[4/5]">
-          <img src="assets/images/dahab-camp/women-sinai-rocks.jpg" alt="На скалах Синая" class="w-full h-full object-cover object-[center_22%]" loading="lazy" decoding="async" width="1080" height="1350">
-        </figure>
-        <div>
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Скалы Синая</p>
-          <h3 class="font-display font-bold text-2xl sm:text-3xl text-slate-900">Горы рядом с морем</h3>
-          <p class="mt-4 text-slate-600 leading-relaxed">У Дахаба давняя скалолазная и альпинистская среда: тёплый камень, понятные маршруты для новичков и насыщенные программы для тех, кто уже в теме. Мы дружим с <strong>Дахабским горным клубом</strong> — это люди, которые много лет ведут группы по Синаю с заботой о безопасности и удовольствии от движения.</p>
-          <p class="mt-4 text-slate-600 leading-relaxed">Если группе откликается формат «чуть-чуть адреналина по-человечески», мы вписываем в расписание пробный день на скалах. Формат и стоимость выбираем заранее.</p>
-          <a href="https://mountain.dahab.pro/taxonomy/term/43" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-amber-600 font-semibold hover:text-amber-700 underline underline-offset-2">Альпинизм и туры на скалах — сайт горного клуба →</a>
+        <div class="freedive-media reveal">
+          <img src="assets/images/dahab-camp/telegraph-11.jpg" alt="Скалы и каньон Синая" loading="lazy" decoding="async" width="669" height="446">
         </div>
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section class="py-16 lg:py-20 bg-white" aria-label="Фотографии Дахаба">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="max-w-2xl mb-8">
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Атмосфера</p>
-          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 leading-tight">Дахаб в кадре</h2>
-          <p class="mt-2 text-slate-600 text-sm">Море, террасы, скалы и утренний свет — без постановки.</p>
-        </div>
-        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-3">
-          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
-            <img src="assets/images/dahab-camp/telegraph-3.jpg" alt="Берег Красного моря" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
-          </figure>
-          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
-            <img src="assets/images/dahab-camp/bougainvillea-terrace.jpg" alt="Терраса" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
-          </figure>
-          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
-            <img src="assets/images/dahab-camp/telegraph-13.jpg" alt="Голубая лагуна" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
-          </figure>
-          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
-            <img src="assets/images/dahab-camp/sea-view-dog.jpg" alt="Вид на море" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
-          </figure>
-          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
-            <img src="assets/images/dahab-camp/telegraph-5.jpg" alt="Закат Синай" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
-          </figure>
-          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
-            <img src="assets/images/dahab-camp/girl-sea-morning.jpg" alt="Утро у моря" class="w-full h-full object-cover object-[center_22%] transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
-          </figure>
-          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
-            <img src="assets/images/dahab-camp/rooftop-dahab-sea.jpg" alt="Вид с крыши" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
-          </figure>
-          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
-            <img src="assets/images/dahab-camp/women-sinai-rocks.jpg" alt="Скалы Синая" class="w-full h-full object-cover object-[center_22%] transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
-          </figure>
-          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
-            <img src="assets/images/dahab-camp/telegraph-4.jpg" alt="Фридайвинг в Красном море" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
-          </figure>
-          <figure class="overflow-hidden rounded-xl shadow-sm group aspect-square">
-            <img src="assets/images/dahab-camp/group-sinai-mountains.jpg" alt="Группа в горах" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="400">
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEAM -->
-    <section id="team" class="py-20 lg:py-28 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="max-w-2xl mb-12">
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Команда</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">Кто ведёт кэмп</h2>
-          <p class="mt-4 text-slate-600">Три мастера — практики, которые дополняют друг друга.</p>
+    <section class="section" id="team">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Команда</p>
+          <h2>Кто ведёт путешествие</h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-
-          <!-- Илья Баринов -->
-          <article class="flex flex-col rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-lg">
-            <figure class="aspect-[3/4] overflow-hidden">
-              <img src="assets/images/author-2.png" alt="Илья Баринов" class="w-full h-full object-cover object-[center_12%] transition duration-500 hover:scale-105" loading="lazy" decoding="async" width="400" height="533">
-            </figure>
-            <div class="p-6 flex flex-col flex-1">
-              <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-1">Преподаватель йоги и цигун</p>
-              <h3 class="font-display font-bold text-xl text-slate-900">Илья Баринов</h3>
-              <div class="mt-3 flex flex-wrap gap-1.5">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-100">🏆 3-кратный чемпион Европы</span>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🧬 Кинезиолог-реабилитолог</span>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🧘‍♂️ Практика 20+ лет</span>
-              </div>
-              <p class="mt-3 text-sm text-slate-600 leading-relaxed flex-1">Практикует и преподаёт йогу и цигун более 15 лет. Ведёт регулярные классы и выездные интенсивы. Дахаб знает изнутри — горы, море и практика для него неотделимы.</p>
-              <a href="https://t.me/vsemaya" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-amber-600 font-semibold hover:text-amber-700 text-sm">Telegram @vsemaya →</a>
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <img src="assets/images/author-2.png" alt="Илья Баринов" loading="lazy" decoding="async" width="1200" height="1800">
+            <div>
+              <h3>Илья Баринов</h3>
+              <p>Преподаватель йоги, цигун и восточных практик. Реабилитолог, кинезиолог, трёхкратный чемпион Европы по тайцзицюань. Практикует и преподаёт больше 20 лет — в России, Египте, Индии.</p>
             </div>
           </article>
-
-          <!-- Андрей Баранов -->
-          <article class="flex flex-col rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-lg">
-            <figure class="aspect-[3/4] overflow-hidden bg-slate-100">
-              <img src="assets/images/dahab-camp/andrey-baranov.jpg" alt="Андрей Баранов" class="w-full h-full object-cover object-[center_15%] transition duration-500 hover:scale-105" loading="lazy" decoding="async" width="400" height="533"
-                onerror="this.closest('figure').style.background='#f1f5f9';this.style.display='none'">
-            </figure>
-            <div class="p-6 flex flex-col flex-1">
-              <p class="text-xs font-bold uppercase tracking-widest text-cyan-600 mb-1">Мастер цигун</p>
-              <h3 class="font-display font-bold text-xl text-slate-900">Андрей Баранов</h3>
-              <div class="mt-3 flex flex-wrap gap-1.5">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-cyan-50 text-cyan-900 border border-cyan-100">☯️ Цигун и нэйгун</span>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🌿 Практика 15+ лет</span>
-              </div>
-              <p class="mt-3 text-sm text-slate-600 leading-relaxed flex-1">Преподаёт цигун и внутренние практики. Работает с дыханием, энергетикой и осознанным движением. Его занятия помогают перейти от физического усилия к ощущению изнутри.</p>
+          <article class="team-card reveal">
+            <img src="assets/images/dahab-camp/telegraph-14.jpg" alt="Андрей Баранов" loading="lazy" decoding="async" width="1280" height="960">
+            <div>
+              <h3>Андрей Баранов</h3>
+              <p>Отвечает за всё, что делает путешествие комфортным: трансфер, выезды, договорённости на месте. Дахаб знает как свой карман — живёт и работает здесь.</p>
             </div>
           </article>
-
-          <!-- Анастасия Якименко -->
-          <article class="flex flex-col rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-lg">
-            <figure class="aspect-[3/4] overflow-hidden bg-slate-100">
-              <img src="assets/images/dahab-camp/anastasia-yakimenko.jpg" alt="Анастасия Якименко" class="w-full h-full object-cover object-[center_15%] transition duration-500 hover:scale-105" loading="lazy" decoding="async" width="400" height="533"
-                onerror="this.closest('figure').style.background='#f0f9ff';this.style.display='none'">
-            </figure>
-            <div class="p-6 flex flex-col flex-1">
-              <p class="text-xs font-bold uppercase tracking-widest text-sky-600 mb-1">Инструктор фридайвинга</p>
-              <h3 class="font-display font-bold text-xl text-slate-900">Анастасия Якименко</h3>
-              <div class="mt-3 flex flex-wrap gap-1.5">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-sky-50 text-sky-900 border border-sky-100">🤿 Фридайвинг AIDA</span>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">🌊 Красное море</span>
-              </div>
-              <p class="mt-3 text-sm text-slate-600 leading-relaxed flex-1">Сертифицированный инструктор фридайвинга. Ведёт базовый курс погружений для участников кэмпа: безопасность, дыхание и расслабление в воде. Программа стыкуется с практиками йоги и медитации.</p>
+          <article class="team-card reveal">
+            <img src="assets/images/dahab-camp/telegraph-15.jpg" alt="Анастасия Якименко" loading="lazy" decoding="async" style="object-position:center 10%;" width="745" height="1118">
+            <div>
+              <h3>Анастасия Якименко</h3>
+              <p>Инструктор по фридайвингу с 2015 года, практик йоги с 2007 года. Умеет объяснить задержку дыхания так, что страх уходит быстрее, чем ожидаешь.</p>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- PRICING -->
-    <section id="price" class="py-20 lg:py-28 bg-white">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6">
-        <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Стоимость</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">Участие в йога-кэмпе</h2>
-          <p class="mt-4 text-slate-600">Место закрепляется после заявки и предоплаты 40 000 ₽. Остаток — до 11 октября 2026 года.</p>
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header reveal" style="text-align:center; margin-bottom:40px;">
+          <p class="eyebrow">Атмосфера</p>
+          <h2>Дахаб изнутри</h2>
+        </div>
+      </div>
+      <div class="gallery-slider-wrap reveal">
+        <div class="swiper gallery-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="assets/images/dahab-camp/gallery-hammock-sea.jpeg" alt="Гамак и бирюзовое море, Дахаб" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/images/dahab-camp/gallery-lagoon-man.jpeg" alt="Бирюзовая лагуна, Дахаб" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/images/dahab-camp/gallery-sunset.jpeg" alt="Закат над горами Синая" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/images/dahab-camp/gallery-rooftop-sea.jpeg" alt="Вид с крыши на Красное море" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/images/dahab-camp/freedive-main.jpeg" alt="Фридайвинг в Красном море" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/images/dahab-camp/gallery-freedive-2.jpeg" alt="Фридайвинг, Дахаб" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/images/dahab-camp/gallery-bay-panorama.jpeg" alt="Бухта Синая, Дахаб" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/images/photo-kite-lagoon.jpg" alt="Лагуна Дахаб" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/images/photo-sinai-sunset.jpg" alt="Закат над горами Синая" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/images/photo-beach-sunset.jpg" alt="Пальма и закат" loading="lazy"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section price-section" id="price">
+      <div class="container price-layout">
+        <div class="price-copy reveal">
+          <p class="eyebrow">Стоимость</p>
+          <h2>Участие в йога-кэмпе</h2>
+          <p>Место закрепляется после заполнения заявки и предоплаты. Остаток оплачивается за месяц до начала путешествия, до 11 октября 2026 года.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 items-stretch">
-          <article class="relative flex flex-col p-8 rounded-2xl bg-white border-2 border-amber-500 shadow-xl shadow-amber-500/10">
-            <span class="absolute top-0 right-0 bg-amber-500 text-slate-900 text-[10px] font-extrabold uppercase tracking-wider px-4 py-2 rounded-bl-xl">Выгодно</span>
-            <h3 class="font-bold text-xl text-slate-900 pr-16">Первые 5 участников</h3>
-            <p class="mt-1 text-sm text-slate-500">Льготная стоимость при раннем бронировании</p>
-            <p class="mt-6 flex items-baseline gap-3">
-              <span class="text-4xl font-black text-slate-900">99 000 ₽</span>
-              <s class="text-slate-400 text-sm">109 000 ₽</s>
+        <div class="price-cards">
+          <article class="price-card price-card-accent reveal">
+            <span>Первые 5 участников</span>
+            <strong>99 000 ₽</strong>
+            <p>Льготная стоимость при раннем бронировании.</p>
+            <p class="seats-left">
+              <span class="seats-dot" aria-hidden="true"></span> Осталось <strong>3 места</strong> по раннему бронированию
             </p>
-            <div class="mt-6" role="group" aria-label="Заполненность ранних мест">
-              <div class="flex justify-between text-xs font-semibold mb-2">
-                <span class="text-amber-600">Осталось <strong>3 места</strong></span>
-                <span class="text-slate-400">2 из 5 занято</span>
-              </div>
-              <div class="h-2 rounded-full bg-slate-100 overflow-hidden">
-                <div class="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-600" style="width: 40%"></div>
-              </div>
-            </div>
-            <a href="#request" class="mt-8 block text-center py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold transition-colors">Успеть по старой цене</a>
           </article>
-
-          <article class="flex flex-col p-8 rounded-2xl bg-gray-50 border border-slate-200">
-            <h3 class="font-bold text-xl text-slate-900">Обычная стоимость</h3>
-            <p class="mt-1 text-sm text-slate-500">После заполнения первых пяти мест</p>
-            <p class="mt-6 text-4xl font-black text-slate-900">109 000 ₽</p>
-            <p class="mt-4 flex-1 text-sm text-slate-600 leading-relaxed">Проживание 10 ночей у моря, практики с Ильёй, трансферы, каньон с темаскаль-баней, Абу-Галум и сопровождение группы.</p>
-            <a href="#request" class="mt-8 block text-center py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold transition-colors">Записаться в группу</a>
+          <article class="price-card reveal">
+            <span>Далее</span>
+            <strong>109 000 ₽</strong>
+            <p>Базовая стоимость участия после первых пяти мест.</p>
+          </article>
+          <article class="price-card reveal">
+            <span>Предоплата</span>
+            <strong>40 000 ₽</strong>
+            <p>Фиксирует место в группе.</p>
           </article>
         </div>
 
-        <div class="mt-10 p-6 md:p-8 rounded-2xl bg-amber-50 border border-amber-100 flex flex-col md:flex-row md:items-center gap-6">
-          <div class="flex-1">
-            <h3 class="font-bold text-lg text-slate-900">Предоплата — 40 000 ₽</h3>
-            <p class="mt-2 text-sm text-slate-600">Фиксирует место и стоимость за вами. Остаток оплачивается до <strong>11 октября 2026</strong>.</p>
-          </div>
-          <p class="text-xs text-slate-500 md:max-w-xs md:border-l-2 md:border-amber-300 md:pl-6 leading-relaxed">
-            <strong class="text-amber-700">Без риска:</strong> предоплата полностью возвращается при отмене участия не позднее чем за <strong>30 дней</strong> до старта кэмпа (до 12 октября 2026).
-          </p>
+        <p class="price-deadline reveal" role="status">
+          <span class="price-deadline-label">Остаток</span>
+          — оплатите до <strong>11 октября 2026</strong>, не позже чем за месяц до старта кэмпа.
+        </p>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="container faq-grid">
+        <div class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>Коротко о важном</h2>
+        </div>
+        <div class="faq-list reveal">
+          <details>
+            <summary>Нужен ли опыт в йоге и медитации?</summary>
+            <p>Нет. Практики подстраиваются под уровень группы: можно углубляться или оставаться в мягком режиме. Напишите заранее о травмах, ограничениях и том, что для вас комфортно.</p>
+          </details>
+          <details>
+            <summary>Можно ли без фридайвинга и без скал?</summary>
+            <p>Да. И фридайвинг, и выход к скалам — по желанию. Основа кэмпа — йога, медитации, море и общие выезды в каньон и Абу-Галум.</p>
+          </details>
+          <details>
+            <summary>Когда покупать билеты?</summary>
+            <p>После подтверждения места мы пришлём в Telegram рекомендованные варианты перелёта и стыковок, чтобы удобно попасть в общий трансфер из Шарм-Эль-Шейха.</p>
+          </details>
+          <details>
+            <summary>Как устроено питание?</summary>
+            <p>В стоимость входят завтраки в отеле. Обеды и ужины оплачиваются отдельно, в Дахабе много кафе рядом с морем.</p>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="py-20 lg:py-28 bg-gray-50">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-12">
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">FAQ</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900">Коротко о важном</h2>
-        </div>
-        <div class="space-y-3" id="faq-accordion">
-          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
-              Нужен ли опыт в йоге и медитации?
-              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
-              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Нет. Практики подстраиваются под уровень группы: можно углубляться или оставаться в мягком режиме. Напишите заранее о травмах, ограничениях и том, что для вас комфортно.</p>
-            </div>
+    <section class="section request-section" id="request">
+      <div class="container request-grid">
+        <div class="request-copy reveal">
+          <p class="eyebrow">Заявка</p>
+          <h2>Напишите в Telegram, чтобы забронировать место</h2>
+          <p>Заявку удобнее оставить в Telegram <strong>@vsemaya</strong> — так мы быстрее ответим, пришлём детали по размещению, предоплате и рекомендованным билетам. Ниже можно собрать текст в форме и открыть чат одной кнопкой.</p>
+          <div class="messenger-links">
+            <a class="btn btn-telegram" href="https://t.me/vsemaya" target="_blank" rel="noopener noreferrer">Открыть Telegram @vsemaya</a>
           </div>
-          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
-              Можно ли без фридайвинга и без скал?
-              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
-              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Да. И фридайвинг, и выход к скалам — по желанию. Основа кэмпа — йога, медитации, море и общие выезды в каньон и Абу-Галум.</p>
-            </div>
-          </div>
-          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
-              Когда покупать билеты?
-              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
-              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">После подтверждения места мы пришлём в Telegram рекомендованные варианты перелёта и стыковок, чтобы удобно попасть в общий трансфер из Шарм-Эль-Шейха.</p>
-            </div>
-          </div>
-          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
-              Как устроено питание?
-              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
-              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">В стоимость входят завтраки в отеле. Обеды и ужины оплачиваются отдельно, в Дахабе много кафе рядом с морем.</p>
-            </div>
-          </div>
-          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
-              Сколько человек в группе?
-              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
-              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Максимум 15 участников. Маленькая группа — это осознанный выбор: так больше внимания каждому и лучше атмосфера.</p>
-            </div>
-          </div>
-          <div class="faq-item rounded-xl bg-white border border-slate-100 shadow-sm overflow-hidden">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 p-5 font-bold text-slate-900 text-left" aria-expanded="false">
-              Что если планы изменятся? Вернётся ли предоплата?
-              <svg class="faq-chevron flex-shrink-0 w-5 h-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="faq-panel max-h-0 overflow-hidden transition-all duration-300">
-              <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Предоплата 40 000 ₽ возвращается в полном объёме при отмене не позднее чем за 30 дней до старта (до 12 октября 2026). Если сроки сжимаются — напишите в Telegram, обсудим перенос или индивидуальное решение.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- REQUEST -->
-    <section id="request" class="py-20 lg:py-28 bg-slate-900 text-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-start">
-        <div>
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-400 mb-3">Заявка</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl leading-tight">Напишите в Telegram, чтобы забронировать место</h2>
-          <p class="mt-5 text-slate-300 leading-relaxed">Заявку удобнее оставить в Telegram <strong class="text-white">@vsemaya</strong> — так мы быстрее ответим, пришлём детали по размещению, предоплате и рекомендованным билетам.</p>
-          <a href="https://t.me/vsemaya" target="_blank" rel="noopener noreferrer" class="inline-flex mt-8 items-center justify-center px-6 py-3 rounded-xl bg-[#229ED9] hover:bg-[#1c8fc7] text-white font-bold transition-colors">
-            Открыть Telegram @vsemaya
-          </a>
         </div>
 
-        <form id="request-form" class="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-5">
-          <label class="block">
-            <span class="text-sm font-bold text-slate-200">Имя</span>
-            <input type="text" id="input-name" name="name" autocomplete="name" required minlength="2" class="mt-2 w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500">
+        <form class="request-form reveal" id="request-form">
+          <label>
+            Имя
+            <input type="text" name="name" autocomplete="name" required minlength="2">
           </label>
-          <label class="block">
-            <span class="text-sm font-bold text-slate-200">Телефон или @username в Telegram</span>
-            <input type="text" id="input-contact" name="contact" autocomplete="tel" required minlength="3" class="mt-2 w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500">
+          <label>
+            Телефон или @username в Telegram
+            <input type="text" name="contact" autocomplete="tel" required minlength="3">
           </label>
-          <label class="block">
-            <span class="text-sm font-bold text-slate-200">Комментарий</span>
-            <textarea id="input-comment" name="message" rows="4" placeholder="Опыт в йоге и медитации, вопросы, пожелания по размещению" class="mt-2 w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 resize-y"></textarea>
+          <label>
+            Комментарий
+            <textarea name="message" rows="4" placeholder="Опыт в йоге и медитации, вопросы, пожелания по размещению"></textarea>
           </label>
-          <button type="submit" class="w-full py-4 rounded-xl bg-[#229ED9] hover:bg-[#1c8fc7] text-white font-bold transition-colors">
-            Отправить заявку в Telegram
-          </button>
-          <p class="text-xs text-slate-400 text-center">Откроется Telegram с готовым текстом — останется нажать «Отправить».</p>
+          <button class="btn btn-telegram" type="submit">Отправить заявку в Telegram</button>
+          <p class="form-note">Откроется Telegram с готовым текстом сообщения — останется нажать «Отправить».</p>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- Mobile sticky CTA (after hero) -->
-  <a id="mobile-book-cta" href="#request" class="md:hidden fixed bottom-5 left-4 right-4 z-40 py-4 rounded-2xl bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-center shadow-2xl shadow-amber-500/40 translate-y-24 opacity-0 pointer-events-none transition-all duration-500" role="region" aria-label="Быстрое бронирование">
-    Забронировать место
-  </a>
+  <div class="mobile-cta-bar" role="region" aria-label="Быстрая запись">
+    <a class="btn btn-primary" href="#request">Заявка</a>
+    <a class="btn btn-telegram" href="https://t.me/vsemaya" target="_blank" rel="noopener noreferrer">Telegram</a>
+  </div>
 
-  <footer class="bg-slate-900 text-slate-400 py-12 pb-24 lg:pb-12 border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-      <div class="flex items-center gap-3 text-white font-display font-bold">
-        <img src="assets/images/logo-barinov.svg" alt="" width="32" height="32" class="brightness-0 invert" decoding="async">
-        <span>Yoga Dahab</span>
-      </div>
-      <p class="text-sm">© 2026 Илья Баринов · Дахаб, 11–21 ноября</p>
-      <div class="flex gap-6 text-sm">
-        <a href="https://t.me/vsemaya" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition-colors">Telegram</a>
-        <a href="privacy.html" class="hover:text-amber-400 transition-colors">Конфиденциальность</a>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Йога-кэмп в Дахабе, 11-21 ноября 2026</p>
+      <div class="footer-links">
+        <a href="https://t.me/vsemaya" target="_blank" rel="noopener noreferrer">Telegram @vsemaya</a>
+        <a href="privacy.html">Политика конфиденциальности</a>
       </div>
     </div>
   </footer>
 
+  <script src="dahab-yoga-camp.js?v=20260514g"></script>
   <script>
-    (function () {
-      const pad = (n) => (n < 10 ? '0' + n : String(n));
-      const target = new Date('2026-11-11T09:00:00').getTime();
-      const elDays = document.getElementById('cd-days');
-      const elHours = document.getElementById('cd-hours');
-      const elMins = document.getElementById('cd-mins');
-      const countdown = document.getElementById('countdown');
+  // ── Countdown timer ──────────────────────────────────────────────────
+  (function(){
+    var TARGET = new Date('2026-11-11T09:00:00+03:00').getTime();
+    function plural(n, one, few, many){
+      n = Math.abs(n) % 100;
+      var n1 = n % 10;
+      if(n > 10 && n < 20) return many;
+      if(n1 > 1 && n1 < 5) return few;
+      if(n1 === 1) return one;
+      return many;
+    }
+    function tick(){
+      var now = Date.now(), diff = TARGET - now;
+      var cdBox = document.getElementById('hero-countdown');
+      var endMsg = document.getElementById('cd-ended');
+      if(diff <= 0){
+        if(cdBox) cdBox.style.display = 'none';
+        if(endMsg) endMsg.style.display = 'block';
+        return;
+      }
+      var d = Math.floor(diff/86400000);
+      var h = Math.floor((diff%86400000)/3600000);
+      var m = Math.floor((diff%3600000)/60000);
+      var pad = function(v){ return String(v).padStart(2,'0'); };
+      document.getElementById('cd-days').textContent  = pad(d);
+      document.getElementById('cd-hours').textContent = pad(h);
+      document.getElementById('cd-mins').textContent  = pad(m);
+      document.getElementById('cd-days-label').textContent  = plural(d,'день','дня','дней');
+      document.getElementById('cd-hours-label').textContent = plural(h,'час','часа','часов');
+      document.getElementById('cd-mins-label').textContent  = plural(m,'минута','минуты','минут');
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
 
-      function tick() {
-        const diff = target - Date.now();
-        if (diff <= 0) {
-          if (countdown) countdown.innerHTML = '<p class="text-amber-400 font-bold">Кэмп уже начался или завершился!</p>';
-          return;
+  // ── Telegram form ────────────────────────────────────────────────────
+  (function(){
+    var form = document.getElementById('request-form');
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name    = form.querySelector('[name="name"]');
+      var contact = form.querySelector('[name="contact"]');
+      var message = form.querySelector('[name="message"]');
+      var valid = true;
+      [name, contact].forEach(function(el){
+        if(!el.value.trim()){
+          el.style.outline = '2px solid #e53e3e';
+          el.style.borderColor = '#e53e3e';
+          el.addEventListener('input', function(){ el.style.outline=''; el.style.borderColor=''; }, {once:true});
+          valid = false;
         }
-        if (elDays) elDays.textContent = pad(Math.floor(diff / 86400000));
-        if (elHours) elHours.textContent = pad(Math.floor((diff % 86400000) / 3600000));
-        if (elMins) elMins.textContent = pad(Math.floor((diff % 3600000) / 60000));
-      }
-      tick();
-      setInterval(tick, 60000);
-    })();
-
-    (function () {
-      const form = document.getElementById('request-form');
-      if (!form) return;
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const name = document.getElementById('input-name')?.value.trim() || '';
-        const contact = document.getElementById('input-contact')?.value.trim() || '';
-        const comment = document.getElementById('input-comment')?.value.trim() || '';
-        const text = 'Привет! Хочу оставить заявку на Йога-кэмп в Дахабе.\n\n👤 Имя: ' + name + '\n📞 Контакт: ' + contact + (comment ? '\n💬 Комментарий: ' + comment : '');
-        window.open('https://t.me/vsemaya?text=' + encodeURIComponent(text), '_blank');
       });
-    })();
+      if(!valid) return;
+      var text = '🧘 Новая заявка с сайта Дахаб!
+'
+        + 'Имя: ' + name.value.trim() + '
+'
+        + 'Контакт: ' + contact.value.trim() + '
+'
+        + (message.value.trim() ? 'Комментарий: ' + message.value.trim() : '');
+      var url = 'https://t.me/vsemaya?text=' + encodeURIComponent(text);
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  })();
 
-    (function () {
-      const header = document.getElementById('header');
-      const toggle = document.getElementById('nav-toggle');
-      const nav = document.getElementById('site-nav');
-      const links = nav?.querySelectorAll('a') || [];
-
-      const hero = document.getElementById('hero');
-      const mobileCta = document.getElementById('mobile-book-cta');
-
-      function onScroll() {
-        if (header) {
-          if (window.scrollY > 24) {
-            header.classList.add('bg-slate-900/80', 'backdrop-blur-md', 'shadow-lg', 'border-white/10');
-            header.classList.remove('bg-transparent', 'border-transparent');
-          } else {
-            header.classList.remove('bg-slate-900/80', 'backdrop-blur-md', 'shadow-lg', 'border-white/10');
-            header.classList.add('bg-transparent', 'border-transparent');
-          }
-        }
-        if (mobileCta && hero) {
-          const pastHero = hero.getBoundingClientRect().bottom < 0;
-          mobileCta.classList.toggle('translate-y-24', !pastHero);
-          mobileCta.classList.toggle('opacity-0', !pastHero);
-          mobileCta.classList.toggle('pointer-events-none', !pastHero);
-          mobileCta.classList.toggle('translate-y-0', pastHero);
-          mobileCta.classList.toggle('opacity-100', pastHero);
-          mobileCta.classList.toggle('pointer-events-auto', pastHero);
-        }
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-
-      function closeNav() {
-        toggle?.setAttribute('aria-expanded', 'false');
-        nav?.classList.add('opacity-0', 'invisible', 'pointer-events-none');
-        nav?.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
-        document.body.classList.remove('overflow-hidden');
-      }
-
-      toggle?.addEventListener('click', function () {
-        const open = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!open));
-        nav?.classList.toggle('opacity-0', open);
-        nav?.classList.toggle('invisible', open);
-        nav?.classList.toggle('pointer-events-none', open);
-        nav?.classList.toggle('opacity-100', !open);
-        nav?.classList.toggle('visible', !open);
-        nav?.classList.toggle('pointer-events-auto', !open);
-        document.body.classList.toggle('overflow-hidden', !open);
+  // ── Program tabs ─────────────────────────────────────────────────────
+  (function(){
+    var tabs    = document.querySelectorAll('.prog-tab');
+    var panels  = document.querySelectorAll('[role="tabpanel"]');
+    tabs.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        tabs.forEach(function(t){ t.classList.remove('prog-tab--active'); t.setAttribute('aria-selected','false'); });
+        panels.forEach(function(p){ p.hidden = true; });
+        btn.classList.add('prog-tab--active');
+        btn.setAttribute('aria-selected','true');
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        if(panel) panel.hidden = false;
       });
+    });
+  })();
 
-      links.forEach((a) => a.addEventListener('click', closeNav));
-    })();
-
-    (function () {
-      const tabs = document.querySelectorAll('[data-program-tab]');
-      const panels = {
-        route: document.getElementById('tab-panel-route'),
-        practices: document.getElementById('tab-panel-practices'),
-      };
-      const active = ['bg-slate-900', 'text-white', 'shadow-md'];
-      const inactive = ['text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-50'];
-
-      function setTab(name) {
-        tabs.forEach((btn) => {
-          const on = btn.dataset.programTab === name;
-          btn.setAttribute('aria-selected', String(on));
-          btn.classList.remove('bg-slate-900', 'text-white', 'shadow-md', 'text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-50');
-          if (on) btn.classList.add(...active);
-          else btn.classList.add(...inactive);
-        });
-        Object.keys(panels).forEach((key) => {
-          if (!panels[key]) return;
-          panels[key].classList.toggle('hidden', key !== name);
-        });
-      }
-
-      tabs.forEach((btn) => btn.addEventListener('click', () => setTab(btn.dataset.programTab)));
-    })();
-
-    (function () {
-      const items = document.querySelectorAll('.faq-item');
-      items.forEach((item) => {
-        const trigger = item.querySelector('.faq-trigger');
-        const panel = item.querySelector('.faq-panel');
-        if (!trigger || !panel) return;
-
-        trigger.addEventListener('click', () => {
-          const isOpen = item.classList.contains('is-open');
-          items.forEach((other) => {
-            if (other === item) return;
-            other.classList.remove('is-open');
-            const p = other.querySelector('.faq-panel');
-            const t = other.querySelector('.faq-trigger');
-            if (p) p.style.maxHeight = '0px';
-            if (t) t.setAttribute('aria-expanded', 'false');
-            other.classList.remove('border-amber-200', 'shadow-md');
-          });
-
-          if (isOpen) {
-            item.classList.remove('is-open', 'border-amber-200', 'shadow-md');
-            panel.style.maxHeight = '0px';
-            trigger.setAttribute('aria-expanded', 'false');
-          } else {
-            item.classList.add('is-open', 'border-amber-200', 'shadow-md');
-            panel.style.maxHeight = panel.scrollHeight + 'px';
-            trigger.setAttribute('aria-expanded', 'true');
-          }
-        });
+  // ── FAQ accordion (details/summary already built-in, just animate) ───
+  (function(){
+    document.querySelectorAll('.faq-list details').forEach(function(d){
+      d.addEventListener('toggle', function(){
+        if(d.open) document.querySelectorAll('.faq-list details').forEach(function(o){ if(o!==d) o.open=false; });
       });
-    })();
+    });
+  })();
   </script>
-  <!-- Underwater: bubbles canvas + caustics overlay -->
-  <canvas id="bubbles-canvas" aria-hidden="true"></canvas>
-  <div class="caustics-overlay" aria-hidden="true"></div>
-  <script src="dahab-underwater.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+      new Swiper('.gallery-swiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 12,
+        centeredSlides: false,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        a11y: { prevSlideMessage: 'Предыдущее фото', nextSlideMessage: 'Следующее фото' },
+        breakpoints: {
+          600:  { slidesPerView: 2, spaceBetween: 16 },
+          1024: { slidesPerView: 3, spaceBetween: 20 }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
