@@ -2353,3 +2353,139 @@ summary:focus-visible {
     max-height: 360px;
   }
 }
+
+
+/* ══════ MOBILE FIXES v2 ══════ */
+
+/* ── Experience section (stats + cards) ── */
+.experience-section { background: var(--bg-mid); }
+
+.experience-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.exp-stat {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.exp-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.exp-stat p {
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.experience-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.exp-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  min-height: 260px;
+  background: var(--bg-sand);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.exp-card--yoga   { background: linear-gradient(160deg, #0a3028 0%, #0d4535 100%); }
+.exp-card--sea    { background: linear-gradient(160deg, #0a2840 0%, #0d3555 100%); }
+.exp-card--desert { background: linear-gradient(160deg, #3a2010 0%, #4d2c14 100%); }
+.exp-card--night  { background: linear-gradient(160deg, #12102a 0%, #1c1a3a 100%); }
+
+.exp-card-inner {
+  position: relative;
+  z-index: 1;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.exp-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(0,196,180,0.15);
+  border: 1px solid rgba(0,196,180,0.3);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  width: fit-content;
+}
+
+.exp-card h3 {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  color: var(--ink);
+  margin: 0;
+}
+
+.exp-card p {
+  color: rgba(240,237,230,0.7);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 919px) {
+  .experience-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .experience-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 599px) {
+  .experience-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .exp-stat { padding: 16px 12px; }
+  .experience-cards {
+    grid-template-columns: 1fr;
+  }
+  .exp-card { min-height: 180px; }
+}
+
+@media (max-width: 699px) {
+  .intro-media img,
+  .freedive-media img,
+  .hotel-img-main {
+    max-height: 380px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 919px) {
+  .mobile-cta-bar {
+    isolation: isolate;
+  }
+  /* Prevent content from hiding behind the sticky bar */
+  main { padding-bottom: 0; }
+}
