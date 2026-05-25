@@ -143,10 +143,12 @@ if (requestForm) {
     const message = String(formData.get("message") || "").trim();
 
     const text = [
-      "Здравствуйте! Хочу на йога-кэмп в Дахаб 11-21 ноября 2026.",
-      `Имя: ${name}`,
-      `Контакт: ${contact}`,
-      message ? `Комментарий: ${message}` : ""
+      "Здравствуйте! Хочу забронировать место на йога-кэмп в Дахабе 11-21 ноября 2026.",
+      "",
+      "Данные для заявки:",
+      `- Имя: ${name}`,
+      `- Контакт: ${contact}`,
+      message ? `- Комментарий: ${message}` : ""
     ]
       .filter(Boolean)
       .join("\n");

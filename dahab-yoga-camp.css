@@ -629,6 +629,22 @@ summary:focus-visible,
   display: none;
 }
 
+.route-panel.is-active {
+  animation: tabFade 0.28s ease both;
+}
+
+@keyframes tabFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .journey-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1473,7 +1489,9 @@ summary:focus-visible,
 
   .btn,
   .header-cta,
-  .gallery-track img {
+  .gallery-track img,
+  .route-panel.is-active {
+    animation: none;
     transition: none;
   }
 }
