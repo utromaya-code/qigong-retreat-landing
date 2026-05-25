@@ -103,19 +103,37 @@ tabButtons.forEach((button) => {
   });
 });
 
+const countdownTarget = new Date(2026, 10, 11, 9, 0, 0).getTime();
+
+function getNoun(number, one, two, five) {
+  let value = Math.abs(number) % 100;
+  if (value >= 5 && value <= 20) return five;
+
+  value %= 10;
+  if (value === 1) return one;
+  if (value >= 2 && value <= 4) return two;
+  return five;
+}
+
+function setCountdownValue(valueEl, value, labels) {
+  if (!valueEl) return;
+
+  const labelEl = valueEl.nextElementSibling;
+  valueEl.textContent = String(value).padStart(2, "0");
+  if (labelEl) labelEl.textContent = getNoun(value, ...labels);
+}
+
 function updateCountdown() {
-  const target = new Date("2026-11-11T00:00:00+03:00").getTime();
-  const diff = target - Date.now();
+  const diff = countdownTarget - Date.now();
+  const countdownEl = document.querySelector(".countdown");
   const daysEl = document.getElementById("cd-days");
   const hoursEl = document.getElementById("cd-hours");
   const minsEl = document.getElementById("cd-mins");
 
   if (!daysEl || !hoursEl || !minsEl) return;
 
-  if (diff <= 0) {
-    daysEl.textContent = "00";
-    hoursEl.textContent = "00";
-    minsEl.textContent = "00";
+  if (!Number.isFinite(diff) || diff <= 0) {
+    if (countdownEl) countdownEl.innerHTML = "<p>Кэмп уже начался или регистрация завершена!</p>";
     return;
   }
 
@@ -123,19 +141,21 @@ function updateCountdown() {
   const hours = Math.floor((diff % 86400000) / 3600000);
   const mins = Math.floor((diff % 3600000) / 60000);
 
-  daysEl.textContent = String(days).padStart(2, "0");
-  hoursEl.textContent = String(hours).padStart(2, "0");
-  minsEl.textContent = String(mins).padStart(2, "0");
+  setCountdownValue(daysEl, days, ["день", "дня", "дней"]);
+  setCountdownValue(hoursEl, hours, ["час", "часа", "часов"]);
+  setCountdownValue(minsEl, mins, ["минута", "минуты", "минут"]);
 }
 
 updateCountdown();
-setInterval(updateCountdown, 30000);
+setInterval(updateCountdown, 1000);
 
 const requestForm = document.getElementById("request-form");
 
 if (requestForm) {
   requestForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    if (!requestForm.reportValidity()) return;
 
     const formData = new FormData(requestForm);
     const name = String(formData.get("name") || "").trim();
