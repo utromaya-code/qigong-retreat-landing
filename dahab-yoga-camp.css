@@ -1057,6 +1057,12 @@ summary:focus-visible,
   font-size: 0.86rem;
 }
 
+.price-soft-note {
+  padding: 0 28px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.9rem;
+}
+
 .faq {
   background: var(--paper);
 }
