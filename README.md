@@ -1,5 +1,11 @@
 # Qigong Retreat Landing
 
+Лендинги **ретритов и выездных программ** (Дахаб, «Вкус жизни» и т.п.).
+
+Онлайн-курсы Ильи Баринова (йога, «Точка опоры») — в отдельном репозитории:  
+**[barinov-courses-landing](https://github.com/utromaya-code/barinov-courses-landing)** →  
+https://utromaya-code.github.io/barinov-courses-landing/
+
 Лендинг ретрита по цигун «Вкус жизни» (21-23 февраля 2026).
 
 ## Структура
