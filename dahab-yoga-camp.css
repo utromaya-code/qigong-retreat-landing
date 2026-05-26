@@ -27,6 +27,24 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Якоря: заголовок секции не прячется под фиксированной шапкой (~78px) */
+#hero,
+#experience,
+#route,
+#included,
+#hotel,
+#team,
+#price,
+#request {
+  scroll-margin-top: 88px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
