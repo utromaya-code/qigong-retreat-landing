@@ -152,8 +152,10 @@ function updateCountdown() {
   setCountdownValue(minsEl, mins, ["минута", "минуты", "минут"]);
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+if (document.getElementById("cd-days")) {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
 
 const requestForm = document.getElementById("request-form");
 
