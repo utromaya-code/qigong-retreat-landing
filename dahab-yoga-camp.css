@@ -1092,82 +1092,6 @@ summary:focus-visible,
   padding: 0 22px 22px;
 }
 
-.packing {
-  background:
-    linear-gradient(180deg, rgba(255, 250, 241, 0.92), rgba(242, 234, 220, 0.98));
-}
-
-.packing-head {
-  max-width: 780px;
-  margin-bottom: 34px;
-}
-
-.packing-head p:not(.eyebrow) {
-  color: var(--ink-soft);
-  font-size: 1.08rem;
-}
-
-.packing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.packing-card {
-  min-height: 100%;
-  padding: 28px;
-  border: 1px solid rgba(16, 38, 37, 0.1);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.68);
-  box-shadow: 0 20px 52px rgba(16, 38, 37, 0.08);
-}
-
-.packing-card > span {
-  color: var(--teal);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-}
-
-.packing-card h3 {
-  margin: 8px 0 18px;
-}
-
-.packing-check {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 12px;
-  align-items: start;
-  padding: 13px 0;
-  color: var(--ink-soft);
-  cursor: pointer;
-}
-
-.packing-check + .packing-check {
-  border-top: 1px solid rgba(16, 38, 37, 0.09);
-}
-
-.packing-check input {
-  width: 20px;
-  height: 20px;
-  margin: 2px 0 0;
-  accent-color: var(--teal);
-  cursor: pointer;
-}
-
-.packing-check span {
-  transition: color 0.25s ease, opacity 0.25s ease, text-decoration-color 0.25s ease;
-}
-
-.packing-check.is-checked span,
-.packing-check input:checked + span {
-  color: rgba(66, 86, 83, 0.62);
-  opacity: 0.68;
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
-  text-decoration-color: rgba(15, 127, 133, 0.42);
-}
-
 .request {
   color: var(--white);
   background:
@@ -1336,8 +1260,7 @@ summary:focus-visible,
   }
 
   .journey-grid,
-  .team-grid,
-  .packing-grid {
+  .team-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1507,8 +1430,7 @@ summary:focus-visible,
   .sensory-grid,
   .journey-grid,
   .included-list,
-  .team-grid,
-  .packing-grid {
+  .team-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1625,8 +1547,7 @@ summary:focus-visible,
   .gallery-track img,
   .route-panel.is-active,
   .team-card,
-  .team-card img,
-  .packing-check span {
+  .team-card img {
     animation: none;
     transition: none;
   }

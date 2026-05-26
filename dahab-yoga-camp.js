@@ -103,15 +103,6 @@ tabButtons.forEach((button) => {
   });
 });
 
-document.querySelectorAll(".packing-check input").forEach((input) => {
-  const updatePackedState = () => {
-    input.closest(".packing-check")?.classList.toggle("is-checked", input.checked);
-  };
-
-  input.addEventListener("change", updatePackedState);
-  updatePackedState();
-});
-
 const countdownTarget = new Date(2026, 10, 11, 9, 0, 0).getTime();
 
 function getNoun(number, one, two, five) {
