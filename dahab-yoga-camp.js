@@ -97,8 +97,14 @@ tabButtons.forEach((button) => {
     Object.entries(tabPanels).forEach(([key, panel]) => {
       if (!panel) return;
       const selected = key === active;
-      panel.classList.toggle("is-active", selected);
-      panel.hidden = !selected;
+      if (selected) {
+        panel.hidden = false;
+        panel.classList.remove("is-active");
+        requestAnimationFrame(() => panel.classList.add("is-active"));
+      } else {
+        panel.classList.remove("is-active");
+        panel.hidden = true;
+      }
     });
   });
 });
