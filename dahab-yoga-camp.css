@@ -188,11 +188,6 @@ p {
   flex-shrink: 0;
 }
 
-.site-nav {
-  flex: 1;
-  min-width: 0;
-}
-
 .brand {
   display: inline-flex;
   align-items: center;
@@ -212,6 +207,8 @@ p {
 }
 
 .site-nav {
+  flex: 1;
+  min-width: 0;
   display: flex;
   justify-content: center;
   gap: 4px;
