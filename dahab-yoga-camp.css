@@ -394,14 +394,26 @@ summary:focus-visible,
 .hero-bg img {
   object-fit: cover;
   object-position: center;
-  filter: saturate(0.92) contrast(0.96) brightness(0.86);
+  filter: saturate(0.85) contrast(0.95) brightness(0.6);
   transform: scale(1.04);
 }
 
 .hero-fade {
   background:
-    linear-gradient(90deg, rgba(20, 19, 17, 0.82) 0%, rgba(20, 19, 17, 0.48) 52%, rgba(20, 19, 17, 0.18) 100%),
-    linear-gradient(0deg, rgba(20, 19, 17, 0.92) 0%, rgba(20, 19, 17, 0.16) 60%);
+    radial-gradient(ellipse 90% 70% at 14% 56%, rgba(20, 19, 17, 0.7), rgba(20, 19, 17, 0) 70%),
+    linear-gradient(90deg, rgba(20, 19, 17, 0.78) 0%, rgba(20, 19, 17, 0.52) 48%, rgba(20, 19, 17, 0.28) 100%),
+    linear-gradient(0deg, rgba(20, 19, 17, 0.92) 0%, rgba(20, 19, 17, 0.34) 60%, rgba(20, 19, 17, 0.18) 100%);
+}
+
+.hero h1,
+.hero .hero-lead,
+.hero .kicker,
+.hero .micro-review {
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.hero h1 {
+  color: var(--paper);
 }
 
 .hero-inner {
@@ -1740,7 +1752,7 @@ li {
 
   .hero-fade {
     background:
-      linear-gradient(0deg, rgba(20, 19, 17, 0.94) 0%, rgba(20, 19, 17, 0.52) 64%, rgba(20, 19, 17, 0.22) 100%);
+      linear-gradient(0deg, rgba(20, 19, 17, 0.96) 0%, rgba(20, 19, 17, 0.78) 36%, rgba(20, 19, 17, 0.5) 70%, rgba(20, 19, 17, 0.34) 100%);
   }
 
   .hero-inner {
