@@ -1722,7 +1722,13 @@ li {
   }
 
   h1 {
-    font-size: clamp(3.2rem, 14vw, 5.2rem);
+    font-size: clamp(2.8rem, 11.5vw, 4.4rem);
+    word-break: keep-all;
+    hyphens: none;
+  }
+
+  .hero-lead {
+    font-size: clamp(1.1rem, 4.4vw, 1.32rem);
   }
 
   h2 {
