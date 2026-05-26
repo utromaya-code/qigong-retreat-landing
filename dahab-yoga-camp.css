@@ -69,6 +69,17 @@ img {
   max-width: 100%;
 }
 
+/* WebP <picture>: не ломаем сетку и absolute-позиционирование */
+.hero-bg picture,
+.journey-card picture,
+.gallery-track figure picture,
+.photo-stack figure picture,
+.extras-collage picture,
+.team-card picture,
+.split-section picture {
+  display: contents;
+}
+
 button,
 input,
 textarea {
