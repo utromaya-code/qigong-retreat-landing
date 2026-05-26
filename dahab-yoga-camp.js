@@ -163,15 +163,24 @@ if (requestForm) {
     const message = String(formData.get("message") || "").trim();
 
     const text = [
-      "Здравствуйте! Хочу забронировать место на йога-кэмп в Дахабе 11-21 ноября 2026.",
+      "Здравствуйте! Хочу забронировать место на йога-кэмп в Дахабе (11–21 ноября 2026).",
       "",
-      "Данные для заявки:",
-      `- Имя: ${name}`,
-      `- Контакт: ${contact}`,
-      message ? `- Комментарий: ${message}` : ""
+      "👤 Имя: " + name,
+      "📞 Контакт: " + contact,
+      message ? "💬 Комментарий: " + message : ""
     ]
       .filter(Boolean)
       .join("\n");
+
+    // Яндекс.Метрика: замените 0 на ID счётчика (например 12345678) после подключения кода в HTML
+    const YM_COUNTER_ID = 0;
+    if (typeof ym !== "undefined" && YM_COUNTER_ID) {
+      ym(YM_COUNTER_ID, "reachGoal", "lead_telegram");
+    }
+
+    if (typeof gtag !== "undefined") {
+      gtag("event", "generate_lead", { method: "telegram" });
+    }
 
     window.open(`https://t.me/vsemaya?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
   });
