@@ -961,8 +961,11 @@ li {
 }
 
 .hotel-gallery__item picture {
+  display: contents;
+}
+
+.hotel-gallery__item picture img {
   display: block;
-  height: 100%;
 }
 
 .hotel-gallery__item img {
@@ -1262,7 +1265,7 @@ li {
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(5, 34, 36, 0.9), rgba(5, 34, 36, 0.58)),
-    url("assets/images/dahab-camp/gallery-rooftop-sea.jpeg") center / cover;
+    url("assets/images/dahab-camp/dahab-rooftop-wind.jpg") center / cover;
 }
 
 .request-card,
