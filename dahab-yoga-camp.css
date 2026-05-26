@@ -1346,7 +1346,7 @@ summary:focus-visible,
   }
 
   body {
-    padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
   }
 
   .container {
@@ -1360,7 +1360,16 @@ summary:focus-visible,
   .route-head,
   .gallery-head,
   .team-head {
-    padding-top: 4px;
+    padding-top: 12px;
+  }
+
+  .gallery-head h2,
+  .route-head h2 {
+    scroll-margin-top: calc(96px + env(safe-area-inset-top, 0px));
+  }
+
+  .section.gallery {
+    padding-top: clamp(88px, 22vw, 112px);
   }
 
   .site-header {
@@ -1444,10 +1453,7 @@ summary:focus-visible,
   }
 
   .header-cta {
-    min-height: 44px;
-    padding: 12px 14px;
-    font-size: 0.84rem;
-    line-height: 1;
+    display: none;
   }
 
   .hero {
@@ -1550,7 +1556,28 @@ summary:focus-visible,
   }
 
   .journey-card {
-    min-height: 390px;
+    min-height: 440px;
+  }
+
+  .journey-card::after {
+    background: linear-gradient(0deg, rgba(5, 35, 37, 0.95) 0%, rgba(5, 35, 37, 0.78) 42%, rgba(5, 35, 37, 0.12) 68%);
+  }
+
+  .journey-card div {
+    padding: 24px 22px 88px;
+  }
+
+  .route-panel {
+    padding-bottom: 8px;
+  }
+
+  .journey-grid {
+    gap: 20px;
+    padding-bottom: 12px;
+  }
+
+  .split-section .section-copy {
+    padding-bottom: 8px;
   }
 
   .route-tabs {
@@ -1622,9 +1649,8 @@ summary:focus-visible,
 }
 
 @media (max-width: 420px) {
-  .header-cta {
-    padding-inline: 12px;
-    font-size: 0.8rem;
+  .brand span {
+    font-size: 1rem;
   }
 }
 
