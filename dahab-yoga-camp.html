@@ -69,7 +69,7 @@
   <link rel="preload" href="assets/images/dahab-camp/telegraph-3.webp" as="image" type="image/webp">
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700&f[]=satoshi@400,500,700,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="dahab-yoga-camp.css?v=launch-ready-1">
+  <link rel="stylesheet" href="dahab-yoga-camp.css?v=mobile-fix-1">
 </head>
 
 <body>
@@ -82,11 +82,6 @@
         <span>Yoga Dahab</span>
       </a>
 
-      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
-        <span></span>
-        <span></span>
-      </button>
-
       <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
         <a href="#experience">Опыт</a>
         <a href="#route">Маршрут</a>
@@ -97,7 +92,13 @@
         <a href="#request">Заявка</a>
       </nav>
 
-      <a class="header-cta" href="#request">Хочу в Дахаб</a>
+      <div class="header-actions">
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+        </button>
+        <a class="header-cta" href="#request">Хочу в Дахаб</a>
+      </div>
     </div>
   </header>
 
@@ -228,7 +229,7 @@
         <div class="route-panel is-active" id="route-panel" role="tabpanel" aria-labelledby="route-tab">
           <div class="journey-grid">
             <article class="journey-card reveal">
-              <picture><source srcset="assets/images/dahab-camp/real-dahab-1.webp" type="image/webp"><img src="assets/images/dahab-camp/real-dahab-1.jpg" alt="Прибытие в Дахаб: набережная и Красное море" loading="lazy" decoding="async" width="800" height="1066"></picture>
+              <picture><source srcset="assets/images/dahab-camp/route-arrival-dahab.webp" type="image/webp"><img src="assets/images/dahab-camp/route-arrival-dahab.jpg" alt="Прибытие в Дахаб: вид на город, мечеть и Красное море" loading="lazy" decoding="async" width="1280" height="720"></picture>
               <div>
                 <span>11 ноября</span>
                 <h3>Приезд и первый вечер у моря</h3>
@@ -363,7 +364,7 @@
     <section class="section split-section" id="hotel">
       <div class="container split-grid">
         <div class="split-media reveal">
-          <picture><source srcset="assets/images/dahab-camp/rooftop-dahab-sea.webp" type="image/webp"><img src="assets/images/dahab-camp/rooftop-dahab-sea.jpg" alt="Вид на море с крыши отеля в Дахабе" loading="lazy" decoding="async" width="800" height="1066"></picture>
+          <picture><source srcset="assets/images/dahab-camp/bougainvillea-terrace.webp" type="image/webp"><img src="assets/images/dahab-camp/bougainvillea-terrace.jpg" alt="Терраса отеля с бугенвиллей в Дахабе" loading="lazy" decoding="async" width="800" height="1066"></picture>
         </div>
         <div class="section-copy reveal">
           <p class="eyebrow">Жить рядом с водой</p>
@@ -391,7 +392,7 @@
       </div>
     </section>
 
-    <section class="section gallery" aria-label="Фотографии путешествия">
+    <section class="section gallery" id="gallery" aria-label="Фотографии путешествия">
       <div class="container gallery-head reveal">
         <p class="eyebrow">Визуальный маршрут</p>
         <h2>Дахаб выглядит именно так</h2>
@@ -539,6 +540,6 @@
     <a href="#request">Хочу в Дахаб</a>
   </div>
 
-  <script src="dahab-yoga-camp.js?v=launch-ready-1"></script>
+  <script src="dahab-yoga-camp.js?v=mobile-fix-1"></script>
 </body>
 </html>

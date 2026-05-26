@@ -25,18 +25,20 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(78px + env(safe-area-inset-top, 0px));
 }
 
-/* Якоря: заголовок секции не прячется под фиксированной шапкой (~78px) */
+/* Якоря: заголовок секции не прячется под фиксированной шапкой */
 #hero,
 #experience,
 #route,
 #included,
 #hotel,
+#gallery,
 #team,
 #price,
 #request {
-  scroll-margin-top: 88px;
+  scroll-margin-top: calc(88px + env(safe-area-inset-top, 0px));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -71,7 +73,6 @@ img {
 
 /* WebP <picture>: не ломаем сетку и absolute-позиционирование */
 .hero-bg picture,
-.journey-card picture,
 .gallery-track figure picture,
 .photo-stack figure picture,
 .extras-collage picture,
@@ -174,10 +175,22 @@ p {
 
 .header-inner {
   min-height: 78px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 16px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.site-nav {
+  flex: 1;
+  min-width: 0;
 }
 
 .brand {
@@ -565,7 +578,6 @@ summary:focus-visible,
 .photo-small img,
 .split-media img,
 .extras-collage img,
-.journey-card img,
 .team-card img {
   width: 100%;
   height: 100%;
@@ -709,6 +721,22 @@ summary:focus-visible,
   color: var(--white);
   background: var(--teal-deep);
   box-shadow: 0 20px 48px rgba(8, 61, 66, 0.14);
+}
+
+.journey-card picture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.journey-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
 }
 
 .journey-card::after {
@@ -1263,10 +1291,6 @@ summary:focus-visible,
 }
 
 @media (max-width: 1060px) {
-  .header-inner {
-    grid-template-columns: auto auto auto;
-  }
-
   .site-nav a {
     padding-inline: 8px;
     font-size: 0.86rem;
@@ -1308,6 +1332,26 @@ summary:focus-visible,
 }
 
 @media (max-width: 760px) {
+  html {
+    scroll-padding-top: calc(70px + env(safe-area-inset-top, 0px));
+  }
+
+  #hero,
+  #experience,
+  #route,
+  #included,
+  #hotel,
+  #gallery,
+  #team,
+  #price,
+  #request {
+    scroll-margin-top: calc(82px + env(safe-area-inset-top, 0px));
+  }
+
+  body {
+    padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+  }
+
   .container {
     width: min(var(--container), calc(100% - 24px));
   }
@@ -1316,7 +1360,14 @@ summary:focus-visible,
     padding: clamp(72px, 18vw, 104px) 0;
   }
 
+  .route-head,
+  .gallery-head,
+  .team-head {
+    padding-top: 4px;
+  }
+
   .site-header {
+    padding-top: env(safe-area-inset-top, 0px);
     color: var(--ink);
     background: rgba(255, 250, 241, 0.94);
     border-bottom: 1px solid rgba(16, 38, 37, 0.1);
@@ -1329,12 +1380,20 @@ summary:focus-visible,
 
   .header-inner {
     min-height: 70px;
-    grid-template-columns: 1fr auto auto;
     gap: 10px;
   }
 
   .brand {
+    min-width: 0;
     font-size: 1.08rem;
+  }
+
+  .brand span {
+    line-height: 1.1;
+  }
+
+  .header-actions {
+    gap: 8px;
   }
 
   .nav-toggle {
@@ -1365,7 +1424,7 @@ summary:focus-visible,
 
   .site-nav {
     position: fixed;
-    inset: 70px 0 auto;
+    inset: calc(70px + env(safe-area-inset-top, 0px)) 0 auto;
     display: grid;
     max-height: 0;
     overflow: hidden;
@@ -1388,9 +1447,10 @@ summary:focus-visible,
   }
 
   .header-cta {
-    min-height: 42px;
-    padding: 11px 14px;
-    font-size: 0.86rem;
+    min-height: 44px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+    line-height: 1;
   }
 
   .hero {
@@ -1535,7 +1595,7 @@ summary:focus-visible,
     position: fixed;
     left: 12px;
     right: 12px;
-    bottom: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
     z-index: 1200;
     display: none;
   }
@@ -1556,7 +1616,18 @@ summary:focus-visible,
   }
 
   .footer-inner {
-    padding-bottom: 56px;
+    padding-bottom: 12px;
+  }
+
+  .journey-card img[data-focus="upper"] {
+    object-position: center 22%;
+  }
+}
+
+@media (max-width: 420px) {
+  .header-cta {
+    padding-inline: 12px;
+    font-size: 0.8rem;
   }
 }
 
