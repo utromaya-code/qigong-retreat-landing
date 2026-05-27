@@ -1622,7 +1622,6 @@ li {
   :root {
     --section-pad: clamp(3.5rem, 7vw, 5rem);
   }
-
   html {
     scroll-padding-top: calc(70px + env(safe-area-inset-top, 0px));
   }
@@ -1656,6 +1655,21 @@ li {
   .gallery-head h2,
   .route-head h2 {
     scroll-margin-top: calc(96px + env(safe-area-inset-top, 0px));
+  }
+
+  .route-head,
+  .gallery-head,
+  .team-head {
+    padding-top: 12px;
+  }
+
+  .gallery-head h2,
+  .route-head h2 {
+    scroll-margin-top: calc(96px + env(safe-area-inset-top, 0px));
+  }
+
+  .section.gallery {
+    padding-top: clamp(88px, 22vw, 112px);
   }
 
   .site-header {
