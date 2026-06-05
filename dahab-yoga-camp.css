@@ -1297,8 +1297,8 @@ li {
 
 .price-tiers {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(36px, 5vw, 72px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 56px);
   align-items: start;
   text-align: left;
 }
@@ -1333,6 +1333,20 @@ li {
   color: rgba(255, 250, 241, 0.78);
   font-size: 1rem;
   line-height: 1.6;
+}
+
+.price-tier--sold .price-tier__amount {
+  opacity: 0.42;
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 250, 241, 0.35);
+}
+
+.price-tier--sold .price-tier__note {
+  color: rgba(255, 250, 241, 0.52);
+}
+
+.price-tier--current {
+  border-top-color: rgba(255, 250, 241, 0.48);
 }
 
 .price-essay {
@@ -1670,6 +1684,11 @@ li {
 
   .section.gallery {
     padding-top: clamp(88px, 22vw, 112px);
+  }
+
+  .price-tiers {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   .site-header {
